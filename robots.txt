@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ameyar1993.github.io/Ameya-Market-Insights/sitemap.xml
