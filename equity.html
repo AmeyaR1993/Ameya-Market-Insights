@@ -207,16 +207,24 @@ html{
 
 <body>
 
-  <nav class="navbar">
+  
+<header class="navbar">
     <div class="logo">AMI</div>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href="wealth.html">Wealth Platform</a>
-      <a href="cmt.html">CMT Mentorship</a>
+
+    <div class="menu-toggle" id="mobile-menu">
+        ☰
     </div>
-  </nav>
+
+    <nav class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="wealth.html">Wealth Platform</a>
+        <a href="equity.html">Equity Platform</a>
+        <a href="cmt.html">CMT Mentorship</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
 
   <section class="equity-hero">
     <div class="equity-hero-content">
@@ -410,5 +418,17 @@ html{
 
 
 <a href="#" class="back-to-top">↑</a>
+
+<script>
+const menuBtn = document.getElementById("mobile-menu");
+const navLinks = document.getElementById("nav-links");
+
+if (menuBtn && navLinks) {
+    menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+}
+</script>
+
 </body>
 </html>

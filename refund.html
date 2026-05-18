@@ -47,16 +47,24 @@
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="logo">AMI</div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="wealth.html">Wealth Platform</a>
-    <a href="equity.html">Equity Platform</a>
-    <a href="cmt.html">CMT Mentorship</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
+
+<header class="navbar">
+    <div class="logo">AMI</div>
+
+    <div class="menu-toggle" id="mobile-menu">
+        ☰
+    </div>
+
+    <nav class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="wealth.html">Wealth Platform</a>
+        <a href="equity.html">Equity Platform</a>
+        <a href="cmt.html">CMT Mentorship</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
 
 <main class="policy-page">
   <div class="policy-container">
@@ -142,6 +150,18 @@
   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
 </a>
 
+
+
+<script>
+const menuBtn = document.getElementById("mobile-menu");
+const navLinks = document.getElementById("nav-links");
+
+if (menuBtn && navLinks) {
+    menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+}
+</script>
 
 </body>
 </html>
