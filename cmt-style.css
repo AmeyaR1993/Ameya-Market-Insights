@@ -394,3 +394,31 @@ html{scroll-behavior:smooth}
     transform: none !important;
   }
 }
+
+/* FINAL OVERRIDE - CMT AMI LEFT + HAMBURGER RIGHT */
+@media (max-width: 900px) {
+  .nav {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 14px 22px !important;
+    min-height: 70px !important;
+  }
+
+  .nav .logo {
+    margin-right: auto !important;
+    text-align: left !important;
+    width: auto !important;
+    flex: 0 0 auto !important;
+  }
+
+  .nav .ami-hamburger {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    flex: 0 0 44px !important;
+  }
+
+  .nav .nav-links {
+    top: 70px !important;
+  }
+}
