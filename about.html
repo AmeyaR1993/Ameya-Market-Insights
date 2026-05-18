@@ -20,31 +20,10 @@
     })(window, document, "clarity", "script", "wt4q6flxk9");
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Learn about Ameya Ranadive, CMT, CFTe and EPAT certified technical analyst with 10+ years of market experience.">
-  <meta name="keywords" content="Ameya Ranadive, CMT, CFTe, EPAT, technical analyst, Ameya Market Insights">
-  <meta name="author" content="Ameya Market Insights">
-  <link rel="canonical" href="https://ameyar1993.github.io/Ameya-Market-Insights/about.html">
-
-  <!-- Open Graph / Social Preview -->
-  <meta property="og:title" content="About Ameya Ranadive | Ameya Market Insights">
-  <meta property="og:description" content="Learn about Ameya Ranadive, CMT, CFTe and EPAT certified technical analyst with 10+ years of market experience.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ameyar1993.github.io/Ameya-Market-Insights/about.html">
-  <meta property="og:image" content="https://ameyar1993.github.io/Ameya-Market-Insights/images/Take_Control_Today.png">
-  <meta property="og:site_name" content="Ameya Market Insights">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About Ameya Ranadive | Ameya Market Insights">
-  <meta name="twitter:description" content="Learn about Ameya Ranadive, CMT, CFTe and EPAT certified technical analyst with 10+ years of market experience.">
-  <meta name="twitter:image" content="https://ameyar1993.github.io/Ameya-Market-Insights/images/Take_Control_Today.png">
-  <title>About Ameya Ranadive | Ameya Market Insights</title>
+  <title>About Us | Ameya Market Insights</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="mobile-nav.css">
   <style>
     body{background:#040816;color:#ffffff;overflow-x:hidden}
     .about-hero{padding:130px 8% 90px;display:grid;grid-template-columns:0.72fr 1.28fr;gap:70px;align-items:center;background:radial-gradient(circle at top left,rgba(0,212,255,.12),transparent 34%),radial-gradient(circle at bottom right,rgba(139,92,246,.14),transparent 36%),linear-gradient(135deg,#040816,#050b1b)}
@@ -67,16 +46,213 @@
     @media(max-width:1100px){.about-hero,.business-grid{grid-template-columns:1fr}.experience-grid{grid-template-columns:1fr}.certification-grid{grid-template-columns:repeat(2,1fr)}.about-content h1{font-size:52px}}
     @media(max-width:650px){.certification-grid{grid-template-columns:1fr}.about-hero,.certification-section,.business-section{padding-left:6%;padding-right:6%}}
   </style>
+<style>
+/* =====================================================
+   AMI MOBILE NAVBAR - CSS ONLY FINAL FIX
+   No JavaScript required.
+===================================================== */
+
+.ami-topnav{
+  width:100%;
+  box-sizing:border-box;
+  min-height:74px;
+  padding:18px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  position:sticky;
+  top:0;
+  z-index:999999;
+  background:rgba(5,9,22,0.97);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+
+.ami-logo{
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:3px;
+  text-decoration:none;
+  line-height:1;
+  background:linear-gradient(135deg,#18d5ff,#8b5cf6);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent !important;
+  white-space:nowrap;
+}
+
+.ami-nav-menu{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:28px;
+  margin:0;
+  padding:0;
+}
+
+.ami-nav-menu a{
+  color:rgba(226,232,240,0.88) !important;
+  text-decoration:none !important;
+  font-size:14px;
+  font-weight:700;
+  line-height:1;
+  white-space:nowrap;
+  transition:.25s ease;
+}
+
+.ami-nav-menu a:hover{
+  color:#7dd3fc !important;
+}
+
+.ami-menu-checkbox{
+  display:none !important;
+}
+
+.ami-menu-button{
+  display:none;
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.06);
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  flex-shrink:0;
+}
+
+.ami-menu-button span{
+  width:22px;
+  height:2px;
+  background:#ffffff;
+  border-radius:999px;
+  display:block;
+  transition:.25s ease;
+}
+
+@media(max-width:900px){
+  .ami-topnav{
+    min-height:78px;
+    padding:18px 20px;
+  }
+
+  .ami-logo{
+    font-size:34px;
+  }
+
+  .ami-menu-button{
+    display:flex !important;
+  }
+
+  .ami-nav-menu{
+    position:absolute;
+    top:78px;
+    left:0;
+    right:0;
+    width:100%;
+    box-sizing:border-box;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    gap:0;
+    padding:14px 18px 22px;
+    background:rgba(5,9,22,0.99);
+    border-bottom:1px solid rgba(255,255,255,0.10);
+    box-shadow:0 28px 80px rgba(0,0,0,0.45);
+  }
+
+  .ami-nav-menu a{
+    width:100%;
+    box-sizing:border-box;
+    padding:16px 18px;
+    margin:4px 0;
+    border-radius:16px;
+    font-size:16px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.07);
+    color:#e5e7eb !important;
+  }
+
+  .ami-menu-checkbox:checked ~ .ami-nav-menu{
+    display:flex !important;
+  }
+
+  .ami-menu-checkbox:checked + .ami-menu-button span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+  }
+
+  .ami-menu-checkbox:checked + .ami-menu-button span:nth-child(2){
+    opacity:0;
+  }
+
+  .ami-menu-checkbox:checked + .ami-menu-button span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+  }
+
+  body{
+    overflow-x:hidden;
+  }
+
+  .hero,
+  .wealth-hero,
+  .about-hero,
+  .policy-page{
+    padding-top:60px !important;
+  }
+
+  .whatsapp-float{
+    right:18px !important;
+    bottom:92px !important;
+    width:56px !important;
+    height:56px !important;
+  }
+
+  .back-to-top{
+    right:18px !important;
+    bottom:24px !important;
+    width:50px !important;
+    height:50px !important;
+  }
+}
+
+@media(max-width:430px){
+  .ami-topnav{
+    padding:16px 18px;
+    min-height:74px;
+  }
+
+  .ami-logo{
+    font-size:32px;
+  }
+
+  .ami-menu-button{
+    width:44px;
+    height:44px;
+  }
+
+  .ami-nav-menu{
+    top:74px;
+  }
+}
+</style>
 </head>
 <body>
-<header class="navbar ami-mobile-navbar">
-  <a class="logo" href="index.html">AMI</a>
+<header class="ami-topnav">
+  <a class="ami-logo" href="index.html">AMI</a>
 
-  <button class="menu-toggle" id="mobile-menu" aria-label="Open navigation" aria-expanded="false">
-    ☰
-  </button>
+  <input type="checkbox" id="ami-menu-toggle" class="ami-menu-checkbox">
+  <label for="ami-menu-toggle" class="ami-menu-button" aria-label="Open navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
 
-  <nav class="nav-links" id="nav-links">
+  <nav class="ami-nav-menu">
     <a href="index.html">Home</a>
     <a href="wealth.html">Wealth Platform</a>
     <a href="equity.html">Equity Platform</a>
@@ -147,36 +323,5 @@
 
 <a href="https://wa.me/919869923815?text=Hello%20Ameya%2C%20I%20would%20like%20to%20know%20more%20about%20Ameya%20Market%20Insights." class="whatsapp-float" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
 <a href="#" class="back-to-top">↑</a>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const menuBtn = document.getElementById("mobile-menu");
-  const navLinks = document.getElementById("nav-links");
-
-  if (!menuBtn || !navLinks) return;
-
-  menuBtn.addEventListener("click", function () {
-    navLinks.classList.toggle("active");
-    const isOpen = navLinks.classList.contains("active");
-    menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    menuBtn.innerHTML = isOpen ? "×" : "☰";
-  });
-
-  navLinks.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      navLinks.classList.remove("active");
-      menuBtn.setAttribute("aria-expanded", "false");
-      menuBtn.innerHTML = "☰";
-    });
-  });
-
-  window.addEventListener("resize", function () {
-    if (window.innerWidth > 900) {
-      navLinks.classList.remove("active");
-      menuBtn.setAttribute("aria-expanded", "false");
-      menuBtn.innerHTML = "☰";
-    }
-  });
-});
-</script>
 </body>
 </html>
