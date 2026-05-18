@@ -1,44 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://ameyar1993.github.io/Ameya-Market-Insights/</loc>
   </url>
-
   <url>
     <loc>https://ameyar1993.github.io/Ameya-Market-Insights/index.html</loc>
   </url>
-
   <url>
     <loc>https://ameyar1993.github.io/Ameya-Market-Insights/wealth.html</loc>
   </url>
-
   <url>
     <loc>https://ameyar1993.github.io/Ameya-Market-Insights/equity.html</loc>
   </url>
-
   <url>
     <loc>https://ameyar1993.github.io/Ameya-Market-Insights/cmt.html</loc>
   </url>
-
-  <url>
-    <loc>https://ameyar1993.github.io/Ameya-Market-Insights/about.html</loc>
-  </url>
-
-  <url>
-    <loc>https://ameyar1993.github.io/Ameya-Market-Insights/contact.html</loc>
-  </url>
-
   <url>
     <loc>https://ameyar1993.github.io/Ameya-Market-Insights/cmt-level-1.html</loc>
   </url>
-
   <url>
     <loc>https://ameyar1993.github.io/Ameya-Market-Insights/cmt-level-2.html</loc>
   </url>
-
   <url>
     <loc>https://ameyar1993.github.io/Ameya-Market-Insights/cmt-level-3.html</loc>
   </url>
-
+  <url>
+    <loc>https://ameyar1993.github.io/Ameya-Market-Insights/about.html</loc>
+  </url>
+  <url>
+    <loc>https://ameyar1993.github.io/Ameya-Market-Insights/contact.html</loc>
+  </url>
+  <url>
+    <loc>https://ameyar1993.github.io/Ameya-Market-Insights/terms.html</loc>
+  </url>
+  <url>
+    <loc>https://ameyar1993.github.io/Ameya-Market-Insights/privacy.html</loc>
+  </url>
+  <url>
+    <loc>https://ameyar1993.github.io/Ameya-Market-Insights/refund.html</loc>
+  </url>
+  <url>
+    <loc>https://ameyar1993.github.io/Ameya-Market-Insights/cancellation.html</loc>
+  </url>
+  <url>
+    <loc>https://ameyar1993.github.io/Ameya-Market-Insights/shipping.html</loc>
+  </url>
 </urlset>
