@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AMI Equity Platform</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+
+html{
+  scroll-behavior:smooth;
+}
+
+.back-to-top{
+  position:fixed;
+  right:28px;
+  bottom:28px;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#00d4ff,#7657ff);
+  color:#ffffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  font-weight:900;
+  text-decoration:none;
+  z-index:9999;
+  box-shadow:0 18px 45px rgba(0,180,255,0.28);
+  border:1px solid rgba(255,255,255,0.18);
+  transition:0.3s ease;
+}
+
+.back-to-top:hover{
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:0 24px 65px rgba(0,180,255,0.42);
+}
+
+    a{text-decoration:none;color:inherit}
+    body{background:#050816;color:white}
+
+    .equity-hero{
+      min-height:92vh;padding:110px 8% 70px;
+      display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center;
+      position:relative;overflow:hidden;
+      background:radial-gradient(circle at 15% 20%,rgba(0,180,255,.18),transparent 32%),
+      radial-gradient(circle at 85% 12%,rgba(127,90,255,.18),transparent 34%),
+      linear-gradient(135deg,#050816 0%,#07111f 55%,#050816 100%);
+    }
+    .equity-hero:before{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+      background-size:46px 46px;opacity:.15;pointer-events:none
+    }
+    .equity-hero-content,.equity-hero-image{position:relative;z-index:2}
+    .equity-pill{
+      display:inline-flex;padding:9px 16px;border-radius:999px;color:#7dd3fc;
+      background:rgba(125,211,252,.08);border:1px solid rgba(125,211,252,.28);
+      font-size:12px;font-weight:900;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:22px
+    }
+    .equity-hero h1{
+      color:#fff;font-size:clamp(44px,7vw,82px);line-height:.98;
+      letter-spacing:-2.4px;margin-bottom:24px
+    }
+    .equity-hero h1 span{
+      background:linear-gradient(135deg,#fff 0%,#7dd3fc 48%,#a78bfa 100%);
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .equity-hero p{color:rgba(226,232,240,.78);font-size:19px;line-height:1.75;max-width:720px}
+    .equity-hero-image img,.feature-image img{
+      width:100%;border-radius:30px;border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 35px 110px rgba(0,0,0,.48);display:block
+    }
+    .equity-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:34px}
+    .equity-primary,.equity-secondary{
+      display:inline-flex;align-items:center;justify-content:center;padding:15px 24px;
+      border-radius:16px;font-weight:900;transition:.3s ease
+    }
+    .equity-primary{background:linear-gradient(135deg,#00d4ff,#7657ff);color:#fff;box-shadow:0 22px 60px rgba(0,180,255,.20)}
+    .equity-secondary{color:#e2e8f0;border:1px solid rgba(255,255,255,.20);background:rgba(255,255,255,.055)}
+    .equity-primary:hover,.equity-secondary:hover{transform:translateY(-4px)}
+
+    .equity-section{padding:90px 8%;background:#080d18}
+    .equity-section.alt{background:radial-gradient(circle at top right,rgba(0,180,255,.10),transparent 34%),#050816}
+    .section-inner{max-width:1250px;margin:auto}
+    .section-title{max-width:880px;margin-bottom:48px}
+    .section-title .tag{
+      color:#7dd3fc;font-size:13px;font-weight:900;letter-spacing:1.4px;
+      text-transform:uppercase;margin-bottom:14px
+    }
+    .section-title h2{color:#fff;font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-1.3px;margin-bottom:16px}
+    .section-title p{color:rgba(226,232,240,.74);font-size:18px;line-height:1.7}
+
+    .feature-showcase{
+      display:grid;grid-template-columns:.85fr 1.15fr;gap:46px;align-items:center;
+      margin-bottom:90px;padding-bottom:70px;border-bottom:1px solid rgba(255,255,255,.08)
+    }
+    .feature-showcase.reverse{grid-template-columns:1.15fr .85fr}
+    .feature-showcase.reverse .feature-text{order:2}
+    .feature-showcase.reverse .feature-image{order:1}
+    .feature-text span{
+      display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;
+      border-radius:14px;background:rgba(125,211,252,.10);color:#7dd3fc;
+      border:1px solid rgba(125,211,252,.24);font-weight:900;margin-bottom:18px
+    }
+    .feature-text h2{color:#fff;font-size:clamp(32px,4.5vw,54px);line-height:1.08;margin-bottom:18px;letter-spacing:-1px}
+    .feature-text p{color:rgba(226,232,240,.74);font-size:18px;line-height:1.75;margin-bottom:24px}
+    .feature-points{display:grid;gap:10px;color:rgba(241,245,249,.84);font-size:15px}
+
+    .why-grid,.pricing-grid-equity{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .pricing-grid-equity{grid-template-columns:repeat(3,1fr);gap:24px}
+    .why-card,.plan-card{
+      padding:28px;border-radius:28px;background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);box-shadow:0 26px 75px rgba(0,0,0,.28);transition:.3s ease
+    }
+    .why-card:hover,.plan-card:hover{transform:translateY(-7px);border-color:rgba(125,211,252,.38)}
+    .why-card h3,.plan-card h3{color:#fff;font-size:24px;margin-bottom:12px}
+    .why-card p,.plan-card p{color:rgba(226,232,240,.72);line-height:1.65;font-size:15px}
+    .plan-card{padding:32px;border-radius:30px}
+    .plan-card.featured{border-color:rgba(250,204,21,.60);box-shadow:0 32px 90px rgba(250,204,21,.12)}
+    .price{color:#7dd3fc;font-size:44px;font-weight:950;margin:10px 0}
+    .featured .price{color:#facc15}
+    .plan-card ul{list-style:none;padding:0;margin-top:22px;color:rgba(226,232,240,.82);line-height:2;font-size:15px}
+    .coming-soon{
+      display:inline-flex;padding:7px 12px;border-radius:999px;background:rgba(250,204,21,.10);
+      color:#facc15;border:1px solid rgba(250,204,21,.26);font-size:12px;font-weight:900;margin-bottom:14px
+    }
+
+    .equity-cta{
+      padding:90px 8%;
+      background:
+        radial-gradient(circle at center, rgba(0,180,255,.12), transparent 38%),
+        #050816;
+    }
+    .equity-cta-inner{
+      max-width:1400px;
+      margin:0 auto;
+      text-align:center;
+    }
+    .equity-cta img{
+      width:100%;
+      display:block;
+      opacity:.96;
+      border-radius:30px;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 35px 110px rgba(0,0,0,.48);
+    }
+    .cta-overlay{
+      position:static;
+      max-width:760px;
+      margin:38px auto 0;
+      text-align:center;
+      z-index:2;
+    }
+    .cta-overlay h2{
+      color:#fff;
+      font-size:clamp(30px,4vw,48px);
+      line-height:1.08;
+      margin-bottom:14px;
+    }
+    .cta-overlay p{
+      color:rgba(226,232,240,.78);
+      font-size:18px;
+      line-height:1.65;
+      margin-bottom:24px;
+    }
+
+    footer{padding:45px 8%;background:#050816;border-top:1px solid rgba(255,255,255,.10);text-align:center}
+    footer h2{color:#fff;margin-bottom:10px}
+    footer p{color:rgba(226,232,240,.70);margin-bottom:20px}
+    footer a{display:inline-flex;padding:13px 20px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff;font-weight:800}
+
+
+    /* Premium footer fix for Equity page: removes boxed footer links */
+    .premium-footer{
+      padding:70px 8% 35px;
+      background:#03040b;
+      border-top:1px solid rgba(255,255,255,0.08);
+      text-align:left;
+    }
+
+    .premium-footer .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:34px;
+      max-width:1400px;
+      margin:0 auto;
+    }
+
+    .premium-footer h2,
+    .premium-footer h3{
+      color:#ffffff;
+      margin-bottom:16px;
+    }
+
+    .premium-footer p,
+    .premium-footer a{
+      display:block;
+      color:#b8bac8;
+      line-height:1.7;
+      margin-bottom:8px;
+      text-decoration:none;
+      font-size:14px;
+      background:none;
+      padding:0;
+      border-radius:0;
+      border:none;
+      box-shadow:none;
+      font-weight:400;
+    }
+
+    .premium-footer a:hover{
+      color:#7dd3fc;
+    }
+
+    .premium-footer .footer-bottom{
+      max-width:1400px;
+      margin:42px auto 0;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      text-align:center;
+      color:#8b90a3;
+      font-size:13px;
+    }
+
+    @media(max-width:1050px){
+      .equity-hero,.feature-showcase,.feature-showcase.reverse,.why-grid,.pricing-grid-equity{grid-template-columns:1fr}
+      .feature-showcase.reverse .feature-text,.feature-showcase.reverse .feature-image{order:initial}
+      .equity-hero{padding:80px 6% 55px}.equity-section{padding:70px 6%}
+      .cta-overlay{position:static;padding:0;margin-top:28px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo">AMI</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="equity.html">Equity Platform</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section class="equity-hero">
+    <div class="equity-hero-content">
+      <p class="equity-pill">AMI EQUITY PLATFORM</p>
+      <h1>Equity market intelligence, <span>built for structure.</span></h1>
+      <p>
+        A professional equity research and analytics platform for market participants who want
+        sector leadership, relative strength, breakout tracking, trend strength, breadth and risk planning
+        in one premium dashboard.
+      </p>
+      <div class="equity-actions">
+        <a class="equity-primary" href="#features">Explore Equity Intelligence</a>
+        <a class="equity-secondary" href="#pricing">View Launch Pricing</a>
+      </div>
+    </div>
+    <div class="equity-hero-image">
+      <img src="equity_images/AMI_Equity_Platform.png" alt="AMI Equity Platform Dashboard">
+    </div>
+  </section>
+
+  <section id="features" class="equity-section">
+    <div class="section-inner">
+      <div class="section-title">
+        <p class="tag">EQUITY INTELLIGENCE SUITE</p>
+        <h2>Everything an equity analyst needs to track market leadership.</h2>
+        <p>
+          AMI Equity Platform converts market noise into structured dashboards:
+          leadership, strength, momentum, breadth, breakout quality and risk management.
+        </p>
+      </div>
+
+      <div class="feature-showcase">
+        <div class="feature-text"><span>01</span><h2>Equity Intelligence Dashboard</h2><p>A single command center for market status, sector strength, market breadth, watchlists, momentum and equity research signals.</p><div class="feature-points"><div>✓ Market status and index overview</div><div>✓ Sector strength summary</div><div>✓ Watchlist intelligence</div></div></div>
+        <div class="feature-image"><img src="equity_images/Equity_Platform.png" alt="Equity Dashboard"></div>
+      </div>
+
+      <div class="feature-showcase reverse">
+        <div class="feature-text"><span>02</span><h2>Sector Rotation Engine</h2><p>Track leadership shifts across sectors using relative strength and momentum. Identify leading, improving, weakening and lagging zones.</p><div class="feature-points"><div>✓ Sector leadership detection</div><div>✓ Rotation quadrant view</div><div>✓ RS and momentum confirmation</div></div></div>
+        <div class="feature-image"><img src="equity_images/Sector_Rotation_Engine.png" alt="Sector Rotation Engine"></div>
+      </div>
+
+      <div class="feature-showcase">
+        <div class="feature-text"><span>03</span><h2>Relative Strength Dashboard</h2><p>Compare sectors and stocks against NIFTY 50 to identify true outperformers and avoid persistent laggards.</p><div class="feature-points"><div>✓ Sector RS ranking</div><div>✓ Leaders vs laggards</div><div>✓ RS trend and momentum score</div></div></div>
+        <div class="feature-image"><img src="equity_images/Relative_Strength.png" alt="Relative Strength Dashboard"></div>
+      </div>
+
+      <div class="feature-showcase reverse">
+        <div class="feature-text"><span>04</span><h2>Breakout Radar</h2><p>Scan high-probability setups across consolidation breakouts, ATH breakouts, volume breakouts and near-breakout structures.</p><div class="feature-points"><div>✓ Breakout candidate table</div><div>✓ Pattern and volume filters</div><div>✓ Breakout quality scoring</div></div></div>
+        <div class="feature-image"><img src="equity_images/Breakout_Radar.png" alt="Breakout Radar"></div>
+      </div>
+
+      <div class="feature-showcase">
+        <div class="feature-text"><span>05</span><h2>Momentum Heatmap</h2><p>Visualize sector momentum in one glance. Quickly spot strongest and weakest pockets of the market.</p><div class="feature-points"><div>✓ Sector-wise momentum tiles</div><div>✓ Strong, neutral and weak zones</div><div>✓ Momentum distribution</div></div></div>
+        <div class="feature-image"><img src="equity_images/Momentum_Heatmap.png" alt="Momentum Heatmap"></div>
+      </div>
+
+      <div class="feature-showcase reverse">
+        <div class="feature-text"><span>06</span><h2>Trend Strength Scanner</h2><p>Identify stocks aligned across moving averages, ADX and trend strength filters to focus only on clean trending structures.</p><div class="feature-points"><div>✓ 20/50/100/200 DEMA alignment</div><div>✓ Trend score and ADX filters</div><div>✓ Strong, moderate and weak trend classification</div></div></div>
+        <div class="feature-image"><img src="equity_images/Trend_Strength.png" alt="Trend Strength Scanner"></div>
+      </div>
+
+      <div class="feature-showcase">
+        <div class="feature-text"><span>07</span><h2>Market Breadth Dashboard</h2><p>Measure market participation and internal strength with advance-decline data, moving average breadth and new high/new low indicators.</p><div class="feature-points"><div>✓ Advance-decline intelligence</div><div>✓ % stocks above key moving averages</div><div>✓ Breadth score and participation view</div></div></div>
+        <div class="feature-image"><img src="equity_images/Market_Breadth.png" alt="Market Breadth Dashboard"></div>
+      </div>
+
+      <div class="feature-showcase reverse">
+        <div class="feature-text"><span>08</span><h2>Sector Leadership Table</h2><p>Compare sectors using returns, relative strength, momentum, breadth, market cap and leadership score.</p><div class="feature-points"><div>✓ Sector rank table</div><div>✓ Trend and momentum score</div><div>✓ Top leaders and laggards</div></div></div>
+        <div class="feature-image"><img src="equity_images/Sector_Leadership.png" alt="Sector Leadership Table"></div>
+      </div>
+
+      <div class="feature-showcase">
+        <div class="feature-text"><span>09</span><h2>Index & Sector Comparison</h2><p>Compare major indices and sectors across returns, relative strength, momentum, trend and valuation metrics.</p><div class="feature-points"><div>✓ Index performance comparison</div><div>✓ Sector RS and momentum</div><div>✓ Multi-timeframe analysis</div></div></div>
+        <div class="feature-image"><img src="equity_images/Index_Sector_Comparison.png" alt="Index and Sector Comparison"></div>
+      </div>
+
+      <div class="feature-showcase reverse">
+        <div class="feature-text"><span>10</span><h2>Risk & Stop Loss Planner</h2><p>Plan trades with predefined risk per trade, stop-loss levels, position sizing and risk-reward calculations.</p><div class="feature-points"><div>✓ Entry, stop-loss and target planner</div><div>✓ Position size calculator</div><div>✓ Risk exposure and checklist</div></div></div>
+        <div class="feature-image"><img src="equity_images/Risk_Stop_Loss.png" alt="Risk and Stop Loss Planner"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="equity-section alt">
+    <div class="section-inner">
+      <div class="section-title">
+        <p class="tag">WHY IT MATTERS</p>
+        <h2>Markets reward structure, not noise.</h2>
+        <p>AMI Equity Platform helps traders and investors focus on leadership, participation, trend strength and risk control instead of reacting emotionally to market moves.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card"><h3>Sector Leadership</h3><p>Follow sectors where relative strength and momentum are actually improving.</p></div>
+        <div class="why-card"><h3>Breakout Quality</h3><p>Separate strong technical setups from random price moves and weak breakouts.</p></div>
+        <div class="why-card"><h3>Market Breadth</h3><p>Understand whether rallies are broad-based or driven by only a few stocks.</p></div>
+        <div class="why-card"><h3>Risk Discipline</h3><p>Plan position size, stop loss and risk-reward before entering a trade.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="equity-section">
+    <div class="section-inner">
+      <div class="section-title">
+        <p class="tag">LAUNCH PRICING</p>
+        <h2>Same simple pricing as AMI Wealth Platform.</h2>
+        <p>AMI Equity Platform will launch with simple investor-friendly pricing. Final access will open after the platform is ready.</p>
+      </div>
+      <div class="pricing-grid-equity">
+        <div class="plan-card"><span class="coming-soon">Coming Soon</span><h3>Monthly</h3><div class="price">₹299</div><p>Flexible monthly access for market participants.</p><ul><li>✓ Equity dashboard</li><li>✓ Sector rotation</li><li>✓ Relative strength tools</li><li>✓ Breakout radar</li></ul></div>
+        <div class="plan-card"><span class="coming-soon">Coming Soon</span><h3>Quarterly</h3><div class="price">₹799</div><p>Better value for active market tracking.</p><ul><li>✓ Everything in Monthly</li><li>✓ Momentum heatmaps</li><li>✓ Trend strength scanner</li><li>✓ Market breadth tools</li></ul></div>
+        <div class="plan-card featured"><span class="coming-soon">Best Value</span><h3>Yearly</h3><div class="price">₹1499</div><p>Best for serious market participants and long-term tracking.</p><ul><li>✓ Complete equity intelligence suite</li><li>✓ Risk & stop-loss planner</li><li>✓ Index & sector comparison</li><li>✓ Watchlist intelligence</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="equity-cta">
+    <div class="equity-cta-inner">
+      <img src="equity_images/AMI_Equity_Platform.png" alt="AMI Equity Platform CTA">
+
+      <div class="cta-overlay">
+        <h2>AMI Equity Platform is coming soon.</h2>
+        <p>
+          Built for structured equity analysis, sector leadership, breakout tracking
+          and risk-aware decision making.
+        </p>
+        <a class="equity-primary" href="index.html">Back to AMI Home</a>
+      </div>
+    </div>
+  </section>
+
+
+<footer class="premium-footer">
+  <div class="footer-grid">
+
+    <div>
+      <h2>Ameya Market Insights</h2>
+      <p>Portfolio analytics, market insights and educational tools for informed investors.</p>
+      <p><strong>Operated by:</strong> Ameya Vikas Ranadive</p>
+      <p><strong>Email:</strong> ameyamarketinsights@gmail.com</p>
+      <p><strong>WhatsApp:</strong> +91 9869923815</p>
+    </div>
+
+    <div>
+      <h3>Platforms</h3>
+      <a href="wealth.html">AMI Wealth Platform</a>
+      <a href="equity.html">AMI Equity Platform</a>
+      <a href="cmt.html">CMT Mentorship</a>
+      <a href="cmt-level-1.html">CMT Level I</a>
+      <a href="cmt-level-2.html">CMT Level II</a>
+      <a href="cmt-level-3.html">CMT Level III</a>
+    </div>
+
+    <div>
+      <h3>Policies</h3>
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="cancellation.html">Cancellation Policy</a>
+      <a href="shipping.html">Shipping Policy</a>
+    </div>
+
+    <div>
+      <h3>Company</h3>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+
+      <p>
+        803 Regent Galaxy,<br>
+        Jankalyan Nagar,<br>
+        Opp. Surbhi Bldg,<br>
+        Malvani, Malad (W),<br>
+        Mumbai Suburban,<br>
+        Maharashtra – 400095
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Ameya Market Insights. All rights reserved.
+  </div>
+</footer>
+
+
+<a
+  href="https://wa.me/919869923815?text=Hello%20Ameya%2C%20I%20would%20like%20to%20inquire%20about%20AMI%20Equity%20Platform."
+  class="whatsapp-float"
+  target="_blank"
+>
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+</a>
+
+
+<a href="#" class="back-to-top">↑</a>
+</body>
+</html>

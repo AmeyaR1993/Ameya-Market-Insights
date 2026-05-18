@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AMI Wealth Platform</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+
+html{
+  scroll-behavior:smooth;
+}
+
+.back-to-top{
+  position:fixed;
+  right:28px;
+  bottom:28px;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#00d4ff,#7657ff);
+  color:#ffffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  font-weight:900;
+  text-decoration:none;
+  z-index:9999;
+  box-shadow:0 18px 45px rgba(0,180,255,0.28);
+  border:1px solid rgba(255,255,255,0.18);
+  transition:0.3s ease;
+}
+
+.back-to-top:hover{
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:0 24px 65px rgba(0,180,255,0.42);
+}
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .strike-price {
+      text-decoration: line-through;
+      opacity: 0.48;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .launch-price {
+      font-size: 44px;
+      font-weight: 900;
+      margin: 8px 0;
+      background: linear-gradient(135deg, #ffffff, #7dd3fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .launch-badge {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.10);
+      color: #7dd3fc;
+      border: 1px solid rgba(125, 211, 252, 0.24);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+
+    .why-matters {
+      padding: 90px 8%;
+      background:
+        radial-gradient(circle at top left, rgba(0, 180, 255, 0.12), transparent 35%),
+        linear-gradient(135deg, #050816, #08111f);
+    }
+
+    .why-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .why-heading {
+      max-width: 820px;
+      margin-bottom: 42px;
+    }
+
+    .why-heading .tag {
+      color: #7dd3fc;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .why-heading h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.06;
+      color: #ffffff;
+      margin-bottom: 16px;
+      letter-spacing: -1.3px;
+    }
+
+    .why-heading p {
+      color: rgba(226, 232, 240, 0.76);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .why-card {
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.065);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 26px 75px rgba(0, 0, 0, 0.28);
+      transition: 0.3s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(125, 211, 252, 0.40);
+      box-shadow: 0 34px 95px rgba(0, 180, 255, 0.13);
+    }
+
+    .why-card span {
+      color: #7dd3fc;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .why-card h3 {
+      color: #ffffff;
+      font-size: 24px;
+      margin: 12px 0;
+    }
+
+    .why-card p {
+      color: rgba(226, 232, 240, 0.72);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .plans-section {
+      padding: 90px 8%;
+      background: #050816;
+    }
+
+    .plans-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .plans-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 44px;
+    }
+
+    .plans-header .tag {
+      color: #7dd3fc;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .plans-header h2 {
+      color: #ffffff;
+      font-size: clamp(34px, 5vw, 56px);
+      margin-bottom: 16px;
+      letter-spacing: -1.2px;
+    }
+
+    .plans-header p {
+      color: rgba(226, 232, 240, 0.75);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .premium-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .premium-price-card {
+      padding: 32px;
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.045));
+      border: 1px solid rgba(255,255,255,0.13);
+      box-shadow: 0 28px 80px rgba(0,0,0,0.32);
+      transition: 0.3s ease;
+    }
+
+    .premium-price-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(125, 211, 252, 0.42);
+    }
+
+    .premium-price-card.featured {
+      border-color: rgba(250, 204, 21, 0.58);
+      box-shadow: 0 32px 90px rgba(250, 204, 21, 0.12);
+    }
+
+    .premium-price-card h3 {
+      color: #ffffff;
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+
+    .premium-price-card p {
+      color: rgba(226, 232, 240, 0.72);
+      line-height: 1.65;
+    }
+
+    .premium-price-card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 22px;
+      color: rgba(226, 232, 240, 0.82);
+      line-height: 2;
+      font-size: 15px;
+    }
+
+    .advisor-section {
+      padding: 90px 8%;
+      background:
+        radial-gradient(circle at bottom right, rgba(250, 204, 21, 0.10), transparent 35%),
+        linear-gradient(135deg, #08111f, #050816);
+    }
+
+    .advisor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .advisor-card {
+      padding: 34px;
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.045));
+      border: 1px solid rgba(255,255,255,0.13);
+      box-shadow: 0 28px 80px rgba(0,0,0,0.32);
+    }
+
+    .advisor-card h3 {
+      color: #ffffff;
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .advisor-card p {
+      color: rgba(226, 232, 240, 0.72);
+      line-height: 1.65;
+    }
+
+    .advisor-card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 22px;
+      color: rgba(226, 232, 240, 0.82);
+      line-height: 2;
+      font-size: 15px;
+    }
+
+    .advisor-card.gold {
+      border-color: rgba(250, 204, 21, 0.54);
+    }
+
+    .advisor-card.green {
+      border-color: rgba(52, 211, 153, 0.48);
+    }
+
+    .advisor-card.gold .launch-price {
+      background: linear-gradient(135deg, #ffffff, #facc15);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .advisor-card.green .launch-price {
+      background: linear-gradient(135deg, #ffffff, #34d399);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    @media (max-width: 950px) {
+      .why-grid,
+      .premium-pricing-grid,
+      .advisor-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-matters,
+      .plans-section,
+      .advisor-section {
+        padding: 70px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo">AMI</div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#features">Features</a>
+      <a href="#why">Why It Matters</a>
+      <a href="#pricing">Pricing</a>
+      <a href="https://ami-wealth-platform.streamlit.app/" target="_blank">Launch App</a>
+    </div>
+  </nav>
+
+  <section class="wealth-hero">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+
+    <div class="wealth-hero-content">
+      <p class="badge">AMI WEALTH PLATFORM</p>
+
+      <h1>One Platform. Complete Mutual Funds Analytics.</h1>
+
+      <p>
+        Track, analyze and optimize your mutual fund portfolio with institutional-grade
+        analytics, risk intelligence, SIP tracking, drawdown analysis and portfolio health scoring.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="primary-btn" href="#features">
+          Explore Features
+        </a>
+        <a class="secondary-btn" href="https://ami-wealth-platform.streamlit.app/" target="_blank">
+          Launch AMI Wealth Platform
+        </a>
+      </div>
+    </div>
+
+    <div class="wealth-hero-image">
+      <img src="images/Take_Control_Today.png" alt="AMI Portfolio Dashboard">
+    </div>
+  </section>
+
+  <section id="features" class="wealth-section">
+
+    <div class="feature-showcase">
+      <div class="feature-text">
+        <span>01</span>
+        <h2>Portfolio Dashboard</h2>
+        <p>
+          Get a complete view of your portfolio value, XIRR, gains, asset allocation,
+          holdings and health score in one clean dashboard.
+        </p>
+      </div>
+      <div class="feature-image">
+        <img src="images/Portfolio.png" alt="Portfolio Dashboard">
+      </div>
+    </div>
+
+    <div class="feature-showcase reverse">
+      <div class="feature-text">
+        <span>02</span>
+        <h2>Drawdown Analytics</h2>
+        <p>
+          Understand how your portfolio behaves during market corrections,
+          track maximum drawdowns, recovery periods and downside risk.
+        </p>
+      </div>
+      <div class="feature-image">
+        <img src="images/Drawdown.png" alt="Drawdown Analytics">
+      </div>
+    </div>
+
+    <div class="feature-showcase">
+      <div class="feature-text">
+        <span>03</span>
+        <h2>Correlation Matrix</h2>
+        <p>
+          See how your funds move with each other and identify hidden concentration
+          risks that normal portfolio apps fail to show.
+        </p>
+      </div>
+      <div class="feature-image">
+        <img src="images/Correlation.png" alt="Correlation Matrix">
+      </div>
+    </div>
+
+    <div class="feature-showcase reverse">
+      <div class="feature-text">
+        <span>04</span>
+        <h2>SIP Tracker</h2>
+        <p>
+          Track all SIPs, upcoming payments, active investments, SIP value,
+          XIRR and monthly investment discipline from one place.
+        </p>
+      </div>
+      <div class="feature-image">
+        <img src="images/SIP_Tracker.png" alt="SIP Tracker">
+      </div>
+    </div>
+
+    <div class="feature-showcase">
+      <div class="feature-text">
+        <span>05</span>
+        <h2>Step-up SIP Projection</h2>
+        <p>
+          Visualize the long-term power of step-up SIP investing and estimate
+          future wealth creation across different scenarios.
+        </p>
+      </div>
+      <div class="feature-image">
+        <img src="images/Step_Up_SIP.png" alt="Step Up SIP Projection">
+      </div>
+    </div>
+
+    <div class="feature-showcase reverse">
+      <div class="feature-text">
+        <span>06</span>
+        <h2>Risk Analytics</h2>
+        <p>
+          Monitor volatility, Sharpe ratio, Sortino ratio, beta, risk-return balance
+          and other advanced portfolio risk metrics.
+        </p>
+      </div>
+      <div class="feature-image">
+        <img src="images/Risk_Analytics.png" alt="Risk Analytics">
+      </div>
+    </div>
+
+    <div class="feature-showcase">
+      <div class="feature-text">
+        <span>07</span>
+        <h2>Overlap Analysis</h2>
+        <p>
+          Detect duplicate holdings, common stocks and unnecessary overlap across funds
+          to build a cleaner, more diversified portfolio.
+        </p>
+      </div>
+      <div class="feature-image">
+        <img src="images/Overlap.png" alt="Overlap Analysis">
+      </div>
+    </div>
+
+    <div class="feature-showcase reverse">
+      <div class="feature-text">
+        <span>08</span>
+        <h2>Portfolio Health Score</h2>
+        <p>
+          Convert complex portfolio analytics into a simple health score backed by
+          risk, diversification, cost efficiency and consistency.
+        </p>
+      </div>
+      <div class="feature-image">
+        <img src="images/Health_Score.png" alt="Portfolio Health Score">
+      </div>
+    </div>
+
+    <div class="feature-showcase">
+      <div class="feature-text">
+        <span>09</span>
+        <h2>Expense Analytics</h2>
+        <p>
+          Understand expense ratio drag, compare portfolio costs and identify how
+          lower expenses can improve long-term outcomes.
+        </p>
+      </div>
+      <div class="feature-image">
+        <img src="images/expense_analytics.png" alt="Expense Analytics">
+      </div>
+    </div>
+
+    <div class="feature-showcase reverse">
+      <div class="feature-text">
+        <span>10</span>
+        <h2>Comparative Table</h2>
+        <p>
+          Compare portfolios, funds and benchmarks across returns, volatility,
+          drawdown, alpha, beta, Sharpe ratio and more.
+        </p>
+      </div>
+      <div class="feature-image">
+        <img src="images/Comparative_Table.png" alt="Comparative Table">
+      </div>
+    </div>
+
+  </section>
+
+  <section class="wealth-wide-image">
+    <img src="images/Why_choose_AMI.png" alt="Why Choose AMI">
+  </section>
+
+  <section id="why" class="why-matters">
+    <div class="why-inner">
+      <div class="why-heading">
+        <p class="tag">WHY IT MATTERS</p>
+        <h2>Your portfolio needs more than return tracking.</h2>
+        <p>
+          A portfolio can look good on returns but still carry hidden risks.
+          AMI Wealth Platform helps investors understand the deeper structure behind performance.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <span>01</span>
+          <h3>Hidden Risk</h3>
+          <p>Identify volatility, drawdown behaviour and downside pressure before it surprises your portfolio.</p>
+        </div>
+
+        <div class="why-card">
+          <span>02</span>
+          <h3>Fund Overlap</h3>
+          <p>Understand whether you are truly diversified or holding the same stocks across multiple funds.</p>
+        </div>
+
+        <div class="why-card">
+          <span>03</span>
+          <h3>Expense Drag</h3>
+          <p>See how expense ratios affect long-term compounding and portfolio efficiency.</p>
+        </div>
+
+        <div class="why-card">
+          <span>04</span>
+          <h3>Decision Clarity</h3>
+          <p>Convert complex fund data into clear dashboards, scores and actionable portfolio insights.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="plans-section">
+    <div class="plans-inner">
+      <div class="plans-header">
+        <p class="tag">LAUNCH PRICING</p>
+        <h2>Investor Plans</h2>
+        <p>
+          Early launch pricing for individual investors who want premium mutual fund analytics.
+        </p>
+      </div>
+
+      <div class="premium-pricing-grid">
+
+        <div class="premium-price-card">
+          <h3>Monthly</h3>
+          <div class="strike-price">₹399</div>
+          <div class="launch-price">₹299</div>
+          <span class="launch-badge">Launch Discount</span>
+          <p>Flexible monthly access for investors who want to explore premium analytics.</p>
+          <ul>
+            <li>✓ Portfolio dashboard</li>
+            <li>✓ Drawdown analytics</li>
+            <li>✓ SIP tracking</li>
+            <li>✓ Risk metrics</li>
+          </ul>
+        </div>
+
+        <div class="premium-price-card">
+          <h3>Quarterly</h3>
+          <div class="strike-price">₹999</div>
+          <div class="launch-price">₹799</div>
+          <span class="launch-badge">Better Value</span>
+          <p>Ideal for investors who review their portfolio every quarter.</p>
+          <ul>
+            <li>✓ Everything in Monthly</li>
+            <li>✓ 90-day access</li>
+            <li>✓ Better effective monthly cost</li>
+            <li>✓ Regular portfolio review cycle</li>
+          </ul>
+        </div>
+
+        <div class="premium-price-card featured">
+          <h3>Yearly</h3>
+          <div class="strike-price">₹1,999</div>
+          <div class="launch-price">₹1,499</div>
+          <span class="launch-badge">Best Value</span>
+          <p>Best for serious long-term investors who want ongoing portfolio intelligence.</p>
+          <ul>
+            <li>✓ Full premium access</li>
+            <li>✓ Lowest effective monthly cost</li>
+            <li>✓ Complete analytics suite</li>
+            <li>✓ Best for long-term tracking</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="advisor-section">
+    <div class="plans-inner">
+      <div class="plans-header">
+        <p class="tag">COMING SOON</p>
+        <h2>Professional Portfolio Solutions</h2>
+        <p>
+          Built for advisors, wealth professionals and teams managing multiple client portfolios.
+        </p>
+      </div>
+
+      <div class="advisor-grid">
+
+        <div class="advisor-card gold">
+          <h3>Advisor Pro</h3>
+          <div class="strike-price">₹15,000</div>
+          <div class="launch-price">₹11,111</div>
+          <span class="launch-badge">Early Advisor Pricing</span>
+          <p>For advisors managing up to 25 client portfolios with reporting and review workflows.</p>
+          <ul>
+            <li>✓ Up to 25 client portfolios</li>
+            <li>✓ Downloadable reports</li>
+            <li>✓ PDF portfolio upload support</li>
+            <li>✓ Tax and capital gains analytics</li>
+          </ul>
+        </div>
+
+        <div class="advisor-card green">
+          <h3>Enterprise</h3>
+          <div class="strike-price">₹32,999</div>
+          <div class="launch-price">₹27,999</div>
+          <span class="launch-badge">Enterprise Launch Pricing</span>
+          <p>For larger advisory teams and enterprise wealth intelligence workflows.</p>
+          <ul>
+            <li>✓ Up to 100 client portfolios</li>
+            <li>✓ Bulk portfolio workflows</li>
+            <li>✓ Custom reports</li>
+            <li>✓ Priority onboarding</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="wealth-cta">
+    <img src="images/Take_Control_Today.png" alt="Take Control Today">
+
+    <div class="cta-overlay">
+      <h2>Ready to analyze your portfolio like a pro?</h2>
+      <a href="https://ami-wealth-platform.streamlit.app/" target="_blank">
+        Launch AMI Wealth Platform
+      </a>
+    </div>
+  </section>
+
+
+<footer class="premium-footer">
+  <div class="footer-grid">
+
+    <div>
+      <h2>Ameya Market Insights</h2>
+      <p>Portfolio analytics, market insights and educational tools for informed investors.</p>
+      <p><strong>Operated by:</strong> Ameya Vikas Ranadive</p>
+      <p><strong>Email:</strong> ameyamarketinsights@gmail.com</p>
+      <p><strong>WhatsApp:</strong> +91 9869923815</p>
+    </div>
+
+    <div>
+      <h3>Platforms</h3>
+      <a href="wealth.html">AMI Wealth Platform</a>
+      <a href="equity.html">AMI Equity Platform</a>
+      <a href="cmt.html">CMT Mentorship</a>
+      <a href="cmt-level-1.html">CMT Level I</a>
+      <a href="cmt-level-2.html">CMT Level II</a>
+      <a href="cmt-level-3.html">CMT Level III</a>
+    </div>
+
+    <div>
+      <h3>Policies</h3>
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="cancellation.html">Cancellation Policy</a>
+      <a href="shipping.html">Shipping Policy</a>
+    </div>
+
+    <div>
+      <h3>Company</h3>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+
+      <p>
+        803 Regent Galaxy,<br>
+        Jankalyan Nagar,<br>
+        Opp. Surbhi Bldg,<br>
+        Malvani, Malad (W),<br>
+        Mumbai Suburban,<br>
+        Maharashtra – 400095
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Ameya Market Insights. All rights reserved.
+  </div>
+</footer>
+
+
+<a
+  href="https://wa.me/919869923815?text=Hello%20Ameya%2C%20I%20would%20like%20to%20inquire%20about%20AMI%20Wealth%20Platform."
+  class="whatsapp-float"
+  target="_blank"
+>
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+</a>
+
+
+<a href="#" class="back-to-top">↑</a>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Ameya Market Insights</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body{background:#040816;color:#ffffff;overflow-x:hidden}
+    .about-hero{padding:130px 8% 90px;display:grid;grid-template-columns:0.72fr 1.28fr;gap:70px;align-items:center;background:radial-gradient(circle at top left,rgba(0,212,255,.12),transparent 34%),radial-gradient(circle at bottom right,rgba(139,92,246,.14),transparent 36%),linear-gradient(135deg,#040816,#050b1b)}
+    .about-image{max-width:430px;width:100%;justify-self:center;border-radius:32px;overflow:hidden;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);box-shadow:0 25px 80px rgba(0,0,0,.35)}
+    .about-image img{width:100%;display:block;max-height:620px;object-fit:contain;object-position:center}
+    .about-tag{display:inline-block;margin-bottom:22px;padding:10px 18px;border-radius:999px;border:1px solid rgba(76,201,240,.28);background:rgba(255,255,255,.04);color:#7dd3fc;font-size:12px;font-weight:800;letter-spacing:1.7px}
+    .about-content h1{font-size:72px;line-height:1.05;margin-bottom:22px;letter-spacing:-2px;background:linear-gradient(135deg,#fff,#9fefff,#9d7cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .about-content p{font-size:19px;line-height:1.9;color:#b9c4d6;max-width:900px}
+    .experience-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:35px}
+    .exp-card{padding:22px;border-radius:22px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10)}
+    .exp-card h3{margin:0 0 8px;color:#fff;font-size:24px}.exp-card p{margin:0;font-size:14px;color:#9fb0c7;line-height:1.7}
+    .media-featured{margin-top:35px;padding:24px;border-radius:24px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 60px rgba(0,0,0,.20)}
+    .media-featured span{display:block;color:#7dd3fc;font-size:12px;font-weight:900;letter-spacing:2px;margin-bottom:12px}.media-featured p{margin:0;color:#fff;font-size:18px;line-height:1.9}
+    .certification-section{padding:100px 8%;background:#050816}.certification-header{max-width:920px;margin:0 auto 55px;text-align:center}.certification-header h2{font-size:56px;margin-bottom:18px;color:#fff}.certification-header p{color:#cbd5e1;line-height:1.8;font-size:18px}
+    .certification-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;max-width:1400px;margin:0 auto}.certification-grid img{width:100%;border-radius:22px;transition:.3s;border:1px solid rgba(255,255,255,.08);box-shadow:0 24px 70px rgba(0,0,0,.32)}.certification-grid img:hover{transform:translateY(-8px)}
+    .business-section{padding:90px 8%;background:radial-gradient(circle at top right,rgba(0,180,255,.08),transparent 34%),#07101d}.business-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1200px;margin:0 auto}.business-card{padding:34px;border-radius:28px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 70px rgba(0,0,0,.25)}.business-card h3{font-size:28px;margin-bottom:20px;color:#fff}.business-card p{color:#cbd5e1;line-height:1.9;margin-bottom:14px}
+    .premium-footer{padding:70px 8% 35px;background:#03040b;border-top:1px solid rgba(255,255,255,.08)}.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:34px;max-width:1400px;margin:0 auto}.premium-footer h2,.premium-footer h3{color:#fff;margin-bottom:16px}.premium-footer p,.premium-footer a{display:block;color:#b8bac8;line-height:1.7;margin-bottom:8px;text-decoration:none;font-size:14px}.premium-footer a:hover{color:#7dd3fc}.footer-bottom{max-width:1400px;margin:42px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);text-align:center;color:#8b90a3;font-size:13px}
+    .whatsapp-float{position:fixed;width:62px;height:62px;bottom:95px;right:28px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:9999;box-shadow:0 18px 45px rgba(37,211,102,.35)}.whatsapp-float img{width:34px;height:34px}
+    .back-to-top{position:fixed;right:28px;bottom:28px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00d4ff,#7657ff);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;text-decoration:none;z-index:9999}
+    @media(max-width:1100px){.about-hero,.business-grid{grid-template-columns:1fr}.experience-grid{grid-template-columns:1fr}.certification-grid{grid-template-columns:repeat(2,1fr)}.about-content h1{font-size:52px}}
+    @media(max-width:650px){.certification-grid{grid-template-columns:1fr}.about-hero,.certification-section,.business-section{padding-left:6%;padding-right:6%}}
+  </style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo">AMI</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="wealth.html">Wealth Platform</a>
+    <a href="equity.html">Equity Platform</a>
+    <a href="cmt.html">CMT Mentorship</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="about-hero">
+  <div class="about-image"><img src="about_images/Ameya.png" alt="Ameya Ranadive"></div>
+  <div class="about-content">
+    <div class="about-tag">ABOUT AMEYA MARKET INSIGHTS</div>
+    <h1>Built by a Market Professional.</h1>
+    <p>Technical Analyst with 10+ years of experience in financial markets, currently working with Motilal Oswal. Ameya specializes in technical research, portfolio analytics, market structure, investor education and data-driven financial intelligence.</p>
+    <div class="experience-grid">
+      <div class="exp-card"><h3>10+ Years</h3><p>Financial Markets Experience</p></div>
+      <div class="exp-card"><h3>CMT® • CFTe®</h3><p>Global Technical Certifications</p></div>
+      <div class="exp-card"><h3>EPAT Certified</h3><p>Algorithmic Trading & Quant Exposure</p></div>
+      <div class="exp-card"><h3>MBA Finance</h3><p>Finance & Research Background</p></div>
+    </div>
+    <div class="media-featured"><span>AS FEATURED IN</span><p>Economic Times • Moneycontrol • Business Standard • Financial Express • Among Others</p></div>
+  </div>
+</section>
+
+<section class="certification-section">
+  <div class="certification-header">
+    <div class="about-tag">PROFESSIONAL CREDENTIALS</div>
+    <h2>Education & Certifications</h2>
+    <p>A blend of technical analysis, finance education, derivatives research, quantitative trading exposure and practical market experience.</p>
+  </div>
+  <div class="certification-grid">
+    <img src="about_images/CMT.png" alt="CMT Certification">
+    <img src="about_images/CFTe.png" alt="CFTe Certification">
+    <img src="about_images/EPAT.png" alt="EPAT Certification">
+    <img src="about_images/Mumbai.png" alt="University of Mumbai">
+    <img src="about_images/Nism.png" alt="NISM Certification">
+  </div>
+</section>
+
+<section class="business-section">
+  <div class="business-grid">
+    <div class="business-card">
+      <h3>About the Platform</h3>
+      <p>Ameya Market Insights is an educational and analytics platform focused on portfolio analytics, market insights and technical analysis education.</p>
+      <p>The platform provides dashboards, visualization tools, portfolio tracking, risk analytics and educational resources for informational and learning purposes.</p>
+    </div>
+    <div class="business-card">
+      <h3>Business Details</h3>
+      <p><strong>Trade Name:</strong> Ameya Market Insights</p>
+      <p><strong>Operated by:</strong> Ameya Vikas Ranadive</p>
+      <p><strong>Business Address:</strong><br>803 Regent Galaxy,<br>Jankalyan Nagar,<br>Opp. Surbhi Bldg,<br>Malvani, Malad (W),<br>Mumbai Suburban,<br>Maharashtra – 400095</p>
+      <p><strong>Email:</strong> ameyamarketinsights@gmail.com</p>
+      <p><strong>WhatsApp:</strong> +91 9869923815</p>
+    </div>
+  </div>
+</section>
+
+<footer class="premium-footer">
+  <div class="footer-grid">
+    <div><h2>Ameya Market Insights</h2><p>Portfolio analytics, market insights and educational tools for informed investors.</p><p><strong>Operated by:</strong> Ameya Vikas Ranadive</p><p><strong>Email:</strong> ameyamarketinsights@gmail.com</p><p><strong>WhatsApp:</strong> +91 9869923815</p></div>
+    <div><h3>Platforms</h3><a href="wealth.html">AMI Wealth Platform</a><a href="equity.html">AMI Equity Platform</a><a href="cmt.html">CMT Mentorship</a><a href="cmt-level-1.html">CMT Level I</a><a href="cmt-level-2.html">CMT Level II</a><a href="cmt-level-3.html">CMT Level III</a></div>
+    <div><h3>Policies</h3><a href="terms.html">Terms & Conditions</a><a href="privacy.html">Privacy Policy</a><a href="refund.html">Refund Policy</a><a href="cancellation.html">Cancellation Policy</a><a href="shipping.html">Shipping Policy</a></div>
+    <div><h3>Company</h3><a href="about.html">About Us</a><a href="contact.html">Contact Us</a><p>803 Regent Galaxy,<br>Jankalyan Nagar,<br>Opp. Surbhi Bldg,<br>Malvani, Malad (W),<br>Mumbai Suburban,<br>Maharashtra – 400095</p></div>
+  </div>
+  <div class="footer-bottom">© 2026 Ameya Market Insights. All rights reserved.</div>
+</footer>
+
+<a href="https://wa.me/919869923815?text=Hello%20Ameya%2C%20I%20would%20like%20to%20know%20more%20about%20Ameya%20Market%20Insights." class="whatsapp-float" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
+<a href="#" class="back-to-top">↑</a>
+</body>
+</html>

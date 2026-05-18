@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ameya Market Insights</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+
+html{
+  scroll-behavior:smooth;
+}
+
+.back-to-top{
+  position:fixed;
+  right:28px;
+  bottom:28px;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#00d4ff,#7657ff);
+  color:#ffffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  font-weight:900;
+  text-decoration:none;
+  z-index:9999;
+  box-shadow:0 18px 45px rgba(0,180,255,0.28);
+  border:1px solid rgba(255,255,255,0.18);
+  transition:0.3s ease;
+}
+
+.back-to-top:hover{
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:0 24px 65px rgba(0,180,255,0.42);
+}
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .product-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Premium fix ONLY for Platform Intelligence section */
+    .showcase-section {
+      padding: 95px 6% 55px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 25% 8%, rgba(0,180,255,0.16), transparent 30%),
+        radial-gradient(circle at 75% 12%, rgba(120,90,255,0.14), transparent 32%),
+        linear-gradient(135deg,#050816 0%,#070d1c 55%,#050816 100%);
+    }
+
+    .showcase-section::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size:44px 44px;
+      opacity:.16;
+      pointer-events:none;
+    }
+
+    .showcase-header {
+      max-width:1000px;
+      margin:0 auto 46px auto;
+      text-align:center;
+      position:relative;
+      z-index:2;
+    }
+
+    .showcase-tag {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:9px 16px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+      color:#7dd3fc;
+      background:rgba(125,211,252,0.08);
+      border:1px solid rgba(125,211,252,0.28);
+      box-shadow:0 0 35px rgba(0,180,255,0.12);
+      margin-bottom:20px;
+    }
+
+    .showcase-header h2 {
+      font-size:clamp(42px,5.8vw,76px);
+      line-height:1.02;
+      letter-spacing:-2px;
+      margin:0 0 22px;
+      background:linear-gradient(135deg,#ffffff 0%,#c8f7ff 42%,#8fa8ff 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .showcase-header p {
+      font-size:18px;
+      line-height:1.75;
+      color:rgba(226,232,240,0.78);
+      max-width:800px;
+      margin:0 auto;
+    }
+
+    .showcase-container {
+      width:100%;
+      display:flex;
+      justify-content:center;
+      position:relative;
+      z-index:2;
+    }
+
+    .showcase-container img {
+      width:100%;
+      max-width:1400px;
+      border-radius:30px;
+      display:block;
+      box-shadow:0 35px 110px rgba(0,0,0,0.42);
+      border:1px solid rgba(255,255,255,0.12);
+    }
+
+    /* Homepage pricing preview only */
+    .pricing-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 42px auto 0;
+    }
+
+    .pricing-preview-card {
+      padding: 34px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.13);
+      text-align: left;
+      transition: 0.3s ease;
+    }
+
+    .pricing-preview-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0,180,255,0.35);
+    }
+
+    .pricing-preview-card.featured {
+      background: linear-gradient(135deg, rgba(0,180,255,0.12), rgba(120,90,255,0.10));
+      border-color: rgba(0,180,255,0.35);
+    }
+
+    .pricing-preview-card span {
+      color: #7dd3fc;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .pricing-preview-card h3 {
+      margin: 16px 0 12px;
+      color: #ffffff;
+      font-size: 26px;
+    }
+
+    .pricing-preview-card h2 {
+      margin: 0 0 14px;
+      color: #7dd3fc;
+      font-size: 34px;
+    }
+
+    .pricing-preview-card p {
+      color: rgba(226,232,240,0.72);
+      line-height: 1.65;
+    }
+
+    .pricing-preview-card a {
+      display: inline-flex;
+      margin-top: 18px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #00d4ff, #7657ff);
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    @media(max-width:900px) {
+      .pricing-preview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo">AMI</div>
+
+    <div class="nav-links">
+      <a href="#platforms">Platforms</a>
+      <a href="wealth.html">Wealth Platform</a>
+      <a href="equity.html">Equity Platform</a>
+      <a href="cmt.html">CMT Mentorship</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+
+    <div class="hero-left">
+      <p class="badge">AMEYA MARKET INSIGHTS</p>
+
+      <h1>Institutional Grade Wealth Intelligence</h1>
+
+      <p class="hero-text">
+        Powerful mutual fund analytics, portfolio health, drawdowns, risk metrics,
+        overlap analysis and investor intelligence — built for serious investors.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="primary-btn" href="wealth.html">
+          Explore AMI Wealth Platform
+        </a>
+
+        <a class="secondary-btn" href="equity.html">
+          Explore AMI Equity Platform
+        </a>
+
+        <a class="secondary-btn" href="cmt.html">
+          Explore CMT Mentorship
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="dashboard-card">
+
+        <div class="card-top">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <h3>Portfolio Intelligence</h3>
+
+        <div class="kpi-row">
+          <div>
+            <p>Portfolio Value</p>
+            <h2>₹18.42L</h2>
+          </div>
+
+          <div>
+            <p>XIRR</p>
+            <h2>16.8%</h2>
+          </div>
+        </div>
+
+        <div class="chart">
+          <div style="height:45%"></div>
+          <div style="height:70%"></div>
+          <div style="height:55%"></div>
+          <div style="height:85%"></div>
+          <div style="height:65%"></div>
+          <div style="height:95%"></div>
+        </div>
+
+        <div class="mini-grid">
+          <div>Risk Score <b>Good</b></div>
+          <div>Overlap <b>Low</b></div>
+          <div>Drawdown <b>-8.4%</b></div>
+          <div>Health <b>82/100</b></div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <section id="showcase" class="showcase-section">
+
+    <div class="showcase-header">
+      <p class="showcase-tag">PLATFORM INTELLIGENCE</p>
+
+      <h2>One Platform. Complete Mutual Funds Analytics.</h2>
+
+      <p>
+        Institutional-grade analytics engine designed for modern investors.
+        Analyze deeper. Track smarter. Optimize better.
+      </p>
+    </div>
+
+    <div class="showcase-container">
+      <a href="wealth.html">
+        <img src="images/Take_Control_Today.png" alt="AMI Wealth Platform Showcase">
+      </a>
+    </div>
+
+  </section>
+
+  <section id="platforms" class="section">
+
+    <h2>Our Platforms</h2>
+
+    <p class="section-subtitle">
+      One ecosystem for wealth, equities and market education.
+    </p>
+
+    <div class="cards">
+
+      <a href="wealth.html" class="product-card active product-link">
+        <span>LIVE</span>
+        <h3>AMI Wealth Platform</h3>
+        <p>
+          Mutual fund analytics, portfolio health, risk, drawdown,
+          SIP tracking and fund intelligence.
+        </p>
+      </a>
+
+      <a href="equity.html" class="product-card product-link">
+        <span>COMING SOON</span>
+        <h3>AMI Equity Platform</h3>
+        <p>
+          Technical analysis, price action, sector strength,
+          momentum and equity intelligence.
+        </p>
+      </a>
+
+      <a href="cmt.html" class="product-card product-link">
+        <span>ENROLLMENT OPEN</span>
+        <h3>CMT Courses & Mentorship</h3>
+        <p>
+          Structured technical analysis education for traders,
+          analysts and CMT aspirants.
+        </p>
+      </a>
+
+    </div>
+
+  </section>
+
+  <section id="features" class="section dark-section">
+
+    <h2>Why AMI Wealth Platform?</h2>
+
+    <p class="section-subtitle">
+      Everything investors need to track, analyze and optimize portfolios.
+    </p>
+
+    <div class="feature-grid">
+      <div>Portfolio X-Ray</div>
+      <div>Risk Analytics</div>
+      <div>Drawdown Analysis</div>
+      <div>SIP Tracking</div>
+      <div>Fund Rankings</div>
+      <div>Overlap Matrix</div>
+      <div>Return Quality</div>
+      <div>Investor Health Score</div>
+    </div>
+
+  </section>
+
+  <section id="pricing" class="section">
+
+    <h2>Pricing Preview</h2>
+
+    <p class="section-subtitle">
+      Explore the platform first. Full launch pricing is available inside the AMI Wealth Platform page.
+    </p>
+
+    <div class="pricing-preview-grid">
+
+      <div class="pricing-preview-card featured">
+        <span>AMI Wealth Platform</span>
+        <h3>Investor Analytics</h3>
+        <h2>Starts ₹299/mo</h2>
+        <p>
+          Premium mutual fund analytics for individual investors.
+        </p>
+        <a href="wealth.html">View Wealth Platform</a>
+      </div>
+
+      <div class="pricing-preview-card">
+        <span>CMT Mentorship</span>
+        <h3>CMT Courses</h3>
+        <h2>Starts ₹30,000</h2>
+        <p>
+          Structured CMT Level I, II and III mentorship.
+        </p>
+        <a href="cmt.html">Explore CMT</a>
+      </div>
+
+      <div class="pricing-preview-card">
+        <span>Coming Soon</span>
+        <h3>Advisor Pro</h3>
+        <h2>Advisor Suite</h2>
+        <p>
+          Multi-client portfolios, reports and advisor workflows.
+        </p>
+        <a href="wealth.html#pricing">View Coming Soon</a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+<footer class="premium-footer">
+  <div class="footer-grid">
+
+    <div>
+      <h2>Ameya Market Insights</h2>
+      <p>Portfolio analytics, market insights and educational tools for informed investors.</p>
+      <p><strong>Operated by:</strong> Ameya Vikas Ranadive</p>
+      <p><strong>Email:</strong> ameyamarketinsights@gmail.com</p>
+      <p><strong>WhatsApp:</strong> +91 9869923815</p>
+    </div>
+
+    <div>
+      <h3>Platforms</h3>
+      <a href="wealth.html">AMI Wealth Platform</a>
+      <a href="equity.html">AMI Equity Platform</a>
+      <a href="cmt.html">CMT Mentorship</a>
+      <a href="cmt-level-1.html">CMT Level I</a>
+      <a href="cmt-level-2.html">CMT Level II</a>
+      <a href="cmt-level-3.html">CMT Level III</a>
+    </div>
+
+    <div>
+      <h3>Policies</h3>
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="cancellation.html">Cancellation Policy</a>
+      <a href="shipping.html">Shipping Policy</a>
+    </div>
+
+    <div>
+      <h3>Company</h3>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+
+      <p>
+        803 Regent Galaxy,<br>
+        Jankalyan Nagar,<br>
+        Opp. Surbhi Bldg,<br>
+        Malvani, Malad (W),<br>
+        Mumbai Suburban,<br>
+        Maharashtra – 400095
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Ameya Market Insights. All rights reserved.
+  </div>
+</footer>
+
+
+<a
+  href="https://wa.me/919869923815?text=Hello%20Ameya%2C%20I%20would%20like%20to%20know%20more%20about%20Ameya%20Market%20Insights."
+  class="whatsapp-float"
+  target="_blank"
+>
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+</a>
+
+
+<a href="#" class="back-to-top">↑</a>
+</body>
+</html>
