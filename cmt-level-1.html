@@ -29,12 +29,14 @@
 
 <nav class="nav">
   <a class="logo" href="index.html">AMI</a>
-  <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
-    <span></span><span></span><span></span>
+
+  
+  <button class="ami-hamburger" type="button" aria-label="Open navigation" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
-
-
-  <div class="nav-links">
+<div class="nav-links">
     <a href="index.html">Home</a>
     <a href="cmt.html">CMT Mentorship</a>
     <a href="cmt-level-1.html">Level I</a>
@@ -178,16 +180,21 @@ target="_blank">Enquire Now</a>
 <a href="#" class="back-to-top">↑</a>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const toggles = document.querySelectorAll(".mobile-menu-toggle");
-
-  toggles.forEach(function (toggle) {
-    toggle.addEventListener("click", function () {
-      const nav = toggle.closest("nav");
+  document.querySelectorAll(".ami-hamburger").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const nav = btn.closest(".navbar, .nav");
       if (!nav) return;
+      nav.classList.toggle("ami-menu-open");
+      btn.setAttribute("aria-expanded", nav.classList.contains("ami-menu-open") ? "true" : "false");
+    });
+  });
 
-      nav.classList.toggle("mobile-menu-open");
-      const isOpen = nav.classList.contains("mobile-menu-open");
-      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  document.querySelectorAll(".navbar .nav-links a, .nav .nav-links a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      const nav = link.closest(".navbar, .nav");
+      const btn = nav ? nav.querySelector(".ami-hamburger") : null;
+      if (nav) nav.classList.remove("ami-menu-open");
+      if (btn) btn.setAttribute("aria-expanded", "false");
     });
   });
 });

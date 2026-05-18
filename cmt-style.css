@@ -241,107 +241,125 @@ html{scroll-behavior:smooth}
   }
 }
 
+
 /* =====================================================
-   AMI CMT MOBILE HAMBURGER NAV
-   Minimal patch: keeps desktop CMT navbar exactly as-is.
+   AMI CMT MOBILE HAMBURGER PATCH
+   Fixes right-side hamburger + close cross on CMT pages.
 ===================================================== */
 
-.mobile-menu-toggle{
+.ami-hamburger{
   display:none;
-  width:44px;
-  height:44px;
-  border:1px solid rgba(255,255,255,0.16);
-  border-radius:14px;
-  background:rgba(255,255,255,0.06);
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  gap:5px;
-  cursor:pointer;
-  padding:0;
-  flex-shrink:0;
 }
 
-.mobile-menu-toggle span{
-  width:22px;
-  height:2px;
-  background:#ffffff;
-  border-radius:999px;
-  display:block;
-  transition:0.25s ease;
-}
-
-@media (max-width:900px){
+@media(max-width:900px){
   .nav{
     position:sticky;
     top:0;
-    width:100%;
-    padding:18px 22px;
-    min-height:78px;
-    z-index:99999;
+    left:0;
+    right:0;
+    min-height:74px;
+    padding:18px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    z-index:9999;
   }
 
   .nav .logo{
+    position:relative;
+    z-index:10002;
     font-size:30px;
-    letter-spacing:2px;
-    background:linear-gradient(90deg,#00d4ff,#8f5cff);
-    background-clip:text;
+    font-weight:900;
+    letter-spacing:3px;
+    background:linear-gradient(135deg,#18d5ff,#8b5cf6);
     -webkit-background-clip:text;
-    color:transparent;
+    background-clip:text;
+    color:transparent !important;
   }
 
-  .nav .mobile-menu-toggle{
-    display:flex;
+  .ami-hamburger{
+    display:flex !important;
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.07);
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+    position:relative;
+    z-index:10002;
+    margin-left:auto;
+    flex:0 0 auto;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  .ami-hamburger span{
+    width:22px;
+    height:2px;
+    background:#ffffff;
+    border-radius:999px;
+    display:block;
+    transition:.25s ease;
+  }
+
+  .nav.ami-menu-open .ami-hamburger span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+  }
+  .nav.ami-menu-open .ami-hamburger span:nth-child(2){
+    opacity:0;
+  }
+  .nav.ami-menu-open .ami-hamburger span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
   }
 
   .nav .nav-links{
     position:absolute;
-    top:78px;
+    top:74px;
     left:0;
     right:0;
     width:100%;
-    display:none;
+    box-sizing:border-box;
+    display:none !important;
     flex-direction:column;
+    gap:12px;
     align-items:stretch;
-    gap:0;
-    padding:14px 18px 22px;
-    background:rgba(5,8,22,0.98);
-    border-bottom:1px solid rgba(255,255,255,0.10);
-    box-shadow:0 28px 80px rgba(0,0,0,0.45);
+    padding:16px 7% 22px;
+    background:rgba(5,8,22,.985);
+    border-bottom:1px solid rgba(255,255,255,.10);
+    box-shadow:0 30px 80px rgba(0,0,0,.45);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    z-index:10001;
   }
 
-  .nav.mobile-menu-open .nav-links{
-    display:flex;
+  .nav.ami-menu-open .nav-links{
+    display:flex !important;
   }
 
   .nav .nav-links a{
     width:100%;
     padding:15px 18px;
     border-radius:16px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.08);
     font-size:16px;
-    font-weight:700;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.07);
-    color:#e5e7eb;
+    font-weight:800;
+    color:#f1f5f9 !important;
   }
 
-  .nav .nav-links a + a{
-    margin-top:8px;
+  .hero{
+    padding-top:70px;
   }
 
-  .nav.mobile-menu-open .mobile-menu-toggle span:nth-child(1){
-    transform:translateY(7px) rotate(45deg);
-  }
-
-  .nav.mobile-menu-open .mobile-menu-toggle span:nth-child(2){
-    opacity:0;
-  }
-
-  .nav.mobile-menu-open .mobile-menu-toggle span:nth-child(3){
-    transform:translateY(-7px) rotate(-45deg);
-  }
-
-  body{
-    overflow-x:hidden;
+  .hero-actions,
+  .hero-actions a{
+    position:relative;
+    z-index:20;
+    pointer-events:auto;
   }
 }
+
