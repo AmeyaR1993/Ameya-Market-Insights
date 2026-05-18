@@ -21,7 +21,27 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Ameya Market Insights</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Premium wealth analytics, equity market intelligence and CMT mentorship by Ameya Ranadive.">
+  <meta name="keywords" content="Ameya Market Insights, AMI Wealth Platform, mutual fund analytics, equity analytics, CMT mentorship">
+  <meta name="author" content="Ameya Market Insights">
+  <link rel="canonical" href="https://ameyar1993.github.io/Ameya-Market-Insights/">
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:title" content="Ameya Market Insights | Wealth, Equity Analytics &amp; CMT Mentorship">
+  <meta property="og:description" content="Premium wealth analytics, equity market intelligence and CMT mentorship by Ameya Ranadive.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ameyar1993.github.io/Ameya-Market-Insights/">
+  <meta property="og:image" content="https://ameyar1993.github.io/Ameya-Market-Insights/images/Take_Control_Today.png">
+  <meta property="og:site_name" content="Ameya Market Insights">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ameya Market Insights | Wealth, Equity Analytics &amp; CMT Mentorship">
+  <meta name="twitter:description" content="Premium wealth analytics, equity market intelligence and CMT mentorship by Ameya Ranadive.">
+  <meta name="twitter:image" content="https://ameyar1993.github.io/Ameya-Market-Insights/images/Take_Control_Today.png">
+
+  <title>Ameya Market Insights | Wealth, Equity Analytics &amp; CMT Mentorship</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="shortcut icon" href="favicon.ico">
 
@@ -225,11 +245,11 @@ html{
   </style>
 <style>
 /* =====================================================
-   AMI FINAL RESPONSIVE NAVBAR - NATIVE CSS ONLY
-   No JavaScript. Works reliably on mobile.
+   AMI NAVBAR REPAIR FINAL
+   Desktop menu visible + mobile hamburger working
 ===================================================== */
 
-.ami-topnav{
+.ami-navbar{
   width:100%;
   box-sizing:border-box;
   min-height:74px;
@@ -262,24 +282,8 @@ html{
   white-space:nowrap;
 }
 
-.ami-menu{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  margin:0;
-  padding:0;
-}
-
-.ami-menu summary{
-  list-style:none;
-}
-
-.ami-menu summary::-webkit-details-marker{
-  display:none;
-}
-
-.ami-nav-menu{
-  display:flex;
+.ami-nav-links{
+  display:flex !important;
   align-items:center;
   justify-content:flex-end;
   gap:28px;
@@ -288,7 +292,7 @@ html{
   background:transparent;
 }
 
-.ami-nav-menu a{
+.ami-nav-links a{
   color:rgba(226,232,240,0.88) !important;
   text-decoration:none !important;
   font-size:14px;
@@ -298,11 +302,15 @@ html{
   transition:.25s ease;
 }
 
-.ami-nav-menu a:hover{
+.ami-nav-links a:hover{
   color:#7dd3fc !important;
 }
 
-.ami-menu-button{
+.ami-menu-toggle{
+  display:none !important;
+}
+
+.ami-hamburger{
   display:none;
   width:46px;
   height:46px;
@@ -317,7 +325,7 @@ html{
   flex-shrink:0;
 }
 
-.ami-menu-button span{
+.ami-hamburger span{
   width:22px;
   height:2px;
   background:#ffffff;
@@ -327,7 +335,7 @@ html{
 }
 
 @media(max-width:900px){
-  .ami-topnav{
+  .ami-navbar{
     min-height:78px;
     padding:18px 20px;
   }
@@ -336,30 +344,18 @@ html{
     font-size:34px;
   }
 
-  .ami-menu-button{
+  .ami-hamburger{
     display:flex !important;
   }
 
-  .ami-menu[open] .ami-menu-button span:nth-child(1){
-    transform:translateY(7px) rotate(45deg);
-  }
-
-  .ami-menu[open] .ami-menu-button span:nth-child(2){
-    opacity:0;
-  }
-
-  .ami-menu[open] .ami-menu-button span:nth-child(3){
-    transform:translateY(-7px) rotate(-45deg);
-  }
-
-  .ami-nav-menu{
+  .ami-nav-links{
     position:absolute;
     top:78px;
     left:0;
     right:0;
     width:100%;
     box-sizing:border-box;
-    display:none;
+    display:none !important;
     flex-direction:column;
     align-items:stretch;
     justify-content:flex-start;
@@ -370,11 +366,23 @@ html{
     box-shadow:0 28px 80px rgba(0,0,0,0.45);
   }
 
-  .ami-menu[open] .ami-nav-menu{
+  .ami-menu-toggle:checked ~ .ami-nav-links{
     display:flex !important;
   }
 
-  .ami-nav-menu a{
+  .ami-menu-toggle:checked + .ami-hamburger span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+  }
+
+  .ami-menu-toggle:checked + .ami-hamburger span:nth-child(2){
+    opacity:0;
+  }
+
+  .ami-menu-toggle:checked + .ami-hamburger span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+  }
+
+  .ami-nav-links a{
     width:100%;
     box-sizing:border-box;
     padding:16px 18px;
@@ -386,8 +394,8 @@ html{
     color:#e5e7eb !important;
   }
 
-  .ami-nav-menu a:hover,
-  .ami-nav-menu a:active{
+  .ami-nav-links a:hover,
+  .ami-nav-links a:active{
     background:linear-gradient(135deg,rgba(0,212,255,0.16),rgba(118,87,255,0.18));
     color:#ffffff !important;
   }
@@ -420,7 +428,7 @@ html{
 }
 
 @media(max-width:430px){
-  .ami-topnav{
+  .ami-navbar{
     padding:16px 18px;
     min-height:74px;
   }
@@ -429,12 +437,12 @@ html{
     font-size:32px;
   }
 
-  .ami-menu-button{
+  .ami-hamburger{
     width:44px;
     height:44px;
   }
 
-  .ami-nav-menu{
+  .ami-nav-links{
     top:74px;
   }
 }
@@ -443,25 +451,24 @@ html{
 
 <body>
 
-  <header class="ami-topnav">
-  <a class="ami-logo" href="index.html">AMI</a>
+  <header class="ami-navbar">
+  <a href="index.html" class="ami-logo">AMI</a>
 
-  <details class="ami-menu">
-    <summary class="ami-menu-button" aria-label="Open navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </summary>
+  <input type="checkbox" id="ami-menu-toggle" class="ami-menu-toggle" />
+  <label for="ami-menu-toggle" class="ami-hamburger" aria-label="Open navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
 
-    <nav class="ami-nav-menu">
-      <a href="#platforms">Platforms</a>
-      <a href="wealth.html">Wealth Platform</a>
-      <a href="equity.html">Equity Platform</a>
-      <a href="cmt.html">CMT Mentorship</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </details>
+  <nav class="ami-nav-links">
+    <a href="#platforms">Platforms</a>
+    <a href="wealth.html">Wealth Platform</a>
+    <a href="equity.html">Equity Platform</a>
+    <a href="cmt.html">CMT Mentorship</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
   <section class="hero">
