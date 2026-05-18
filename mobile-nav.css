@@ -1,0 +1,184 @@
+/* =========================================================
+   AMI RESPONSIVE NAVBAR FIX
+   Applies to all pages including CMT pages.
+========================================================= */
+
+.ami-mobile-navbar,
+.navbar.ami-mobile-navbar {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 24px;
+  padding: 18px 6%;
+  min-height: 76px;
+  background: rgba(5, 9, 22, 0.96);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.ami-mobile-navbar .logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  line-height: 1;
+  background: linear-gradient(135deg, #18d5ff, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  white-space: nowrap;
+}
+
+.ami-mobile-navbar .nav-links {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.ami-mobile-navbar .nav-links a {
+  color: rgba(226,232,240,0.88) !important;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  transition: 0.25s ease;
+}
+
+.ami-mobile-navbar .nav-links a:hover {
+  color: #7dd3fc !important;
+}
+
+.ami-mobile-navbar .menu-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: #ffffff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .ami-mobile-navbar,
+  .navbar.ami-mobile-navbar {
+    padding: 18px 22px;
+    min-height: 78px;
+    position: sticky;
+    top: 0;
+  }
+
+  .ami-mobile-navbar .logo {
+    font-size: 32px;
+  }
+
+  .ami-mobile-navbar .menu-toggle {
+    display: inline-flex !important;
+  }
+
+  .ami-mobile-navbar .nav-links {
+    position: fixed !important;
+    top: 78px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: none !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    gap: 0;
+    padding: 12px 18px 20px;
+    background: rgba(5, 9, 22, 0.985);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 28px 80px rgba(0,0,0,0.45);
+    z-index: 99998;
+  }
+
+  .ami-mobile-navbar .nav-links.active {
+    display: flex !important;
+  }
+
+  .ami-mobile-navbar .nav-links a {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 18px;
+    border-radius: 16px;
+    margin: 3px 0;
+    font-size: 16px;
+    color: #e5e7eb !important;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .ami-mobile-navbar .nav-links a:hover,
+  .ami-mobile-navbar .nav-links a:active {
+    background: linear-gradient(135deg, rgba(0,212,255,0.16), rgba(118,87,255,0.18));
+    color: #ffffff !important;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .hero,
+  .wealth-hero,
+  .about-hero,
+  .policy-page {
+    padding-top: 64px;
+  }
+
+  .whatsapp-float {
+    right: 18px !important;
+    bottom: 92px !important;
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .back-to-top {
+    right: 18px !important;
+    bottom: 24px !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+/* Small phones */
+@media (max-width: 430px) {
+  .ami-mobile-navbar,
+  .navbar.ami-mobile-navbar {
+    padding: 16px 18px;
+  }
+
+  .ami-mobile-navbar .logo {
+    font-size: 30px;
+  }
+
+  .ami-mobile-navbar .menu-toggle {
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+  }
+
+  .ami-mobile-navbar .nav-links {
+    top: 74px;
+  }
+}

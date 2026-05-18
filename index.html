@@ -46,6 +46,7 @@
   <link rel="shortcut icon" href="favicon.ico">
 
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mobile-nav.css">
 
   <style>
 
@@ -247,24 +248,22 @@ html{
 
 <body>
 
-  
-<header class="navbar">
-    <div class="logo">AMI</div>
+  <header class="navbar ami-mobile-navbar">
+  <a class="logo" href="index.html">AMI</a>
 
-    <div class="menu-toggle" id="mobile-menu">
-        ☰
-    </div>
+  <button class="menu-toggle" id="mobile-menu" aria-label="Open navigation" aria-expanded="false">
+    ☰
+  </button>
 
-    <nav class="nav-links" id="nav-links">
-        <a href="index.html">Home</a>
-        <a href="wealth.html">Wealth Platform</a>
-        <a href="equity.html">Equity Platform</a>
-        <a href="cmt.html">CMT Mentorship</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+  <nav class="nav-links" id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="wealth.html">Wealth Platform</a>
+    <a href="equity.html">Equity Platform</a>
+    <a href="cmt.html">CMT Mentorship</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
-
 
   <section class="hero">
 
@@ -531,17 +530,36 @@ html{
 
 
 <a href="#" class="back-to-top">↑</a>
-
 <script>
-const menuBtn = document.getElementById("mobile-menu");
-const navLinks = document.getElementById("nav-links");
+document.addEventListener("DOMContentLoaded", function () {
+  const menuBtn = document.getElementById("mobile-menu");
+  const navLinks = document.getElementById("nav-links");
 
-if (menuBtn && navLinks) {
-    menuBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+  if (!menuBtn || !navLinks) return;
+
+  menuBtn.addEventListener("click", function () {
+    navLinks.classList.toggle("active");
+    const isOpen = navLinks.classList.contains("active");
+    menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    menuBtn.innerHTML = isOpen ? "×" : "☰";
+  });
+
+  navLinks.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      navLinks.classList.remove("active");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.innerHTML = "☰";
     });
-}
-</script>
+  });
 
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 900) {
+      navLinks.classList.remove("active");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.innerHTML = "☰";
+    }
+  });
+});
+</script>
 </body>
 </html>
