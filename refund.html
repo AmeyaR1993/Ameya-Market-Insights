@@ -29,6 +29,10 @@
 
 <nav class="navbar">
   <div class="logo">AMI</div>
+  <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="wealth.html">Wealth Platform</a>
@@ -123,5 +127,21 @@
 </a>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggles = document.querySelectorAll(".mobile-menu-toggle");
+
+  toggles.forEach(function (toggle) {
+    toggle.addEventListener("click", function () {
+      const nav = toggle.closest("nav");
+      if (!nav) return;
+
+      nav.classList.toggle("mobile-menu-open");
+      const isOpen = nav.classList.contains("mobile-menu-open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  });
+});
+</script>
 </body>
 </html>

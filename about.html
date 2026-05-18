@@ -50,6 +50,10 @@
 <body>
 <nav class="navbar">
   <div class="logo">AMI</div>
+  <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="wealth.html">Wealth Platform</a>
@@ -120,5 +124,21 @@
 
 <a href="https://wa.me/919869923815?text=Hello%20Ameya%2C%20I%20would%20like%20to%20know%20more%20about%20Ameya%20Market%20Insights." class="whatsapp-float" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
 <a href="#" class="back-to-top">↑</a>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggles = document.querySelectorAll(".mobile-menu-toggle");
+
+  toggles.forEach(function (toggle) {
+    toggle.addEventListener("click", function () {
+      const nav = toggle.closest("nav");
+      if (!nav) return;
+
+      nav.classList.toggle("mobile-menu-open");
+      const isOpen = nav.classList.contains("mobile-menu-open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  });
+});
+</script>
 </body>
 </html>
