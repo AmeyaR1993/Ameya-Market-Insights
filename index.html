@@ -225,8 +225,8 @@ html{
   </style>
 <style>
 /* =====================================================
-   AMI MOBILE NAVBAR - CSS ONLY FINAL FIX
-   No JavaScript required.
+   AMI FINAL RESPONSIVE NAVBAR - NATIVE CSS ONLY
+   No JavaScript. Works reliably on mobile.
 ===================================================== */
 
 .ami-topnav{
@@ -248,16 +248,34 @@ html{
 }
 
 .ami-logo{
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none !important;
   font-size:26px;
   font-weight:900;
   letter-spacing:3px;
-  text-decoration:none;
   line-height:1;
   background:linear-gradient(135deg,#18d5ff,#8b5cf6);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent !important;
   white-space:nowrap;
+}
+
+.ami-menu{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  margin:0;
+  padding:0;
+}
+
+.ami-menu summary{
+  list-style:none;
+}
+
+.ami-menu summary::-webkit-details-marker{
+  display:none;
 }
 
 .ami-nav-menu{
@@ -267,6 +285,7 @@ html{
   gap:28px;
   margin:0;
   padding:0;
+  background:transparent;
 }
 
 .ami-nav-menu a{
@@ -281,10 +300,6 @@ html{
 
 .ami-nav-menu a:hover{
   color:#7dd3fc !important;
-}
-
-.ami-menu-checkbox{
-  display:none !important;
 }
 
 .ami-menu-button{
@@ -325,6 +340,18 @@ html{
     display:flex !important;
   }
 
+  .ami-menu[open] .ami-menu-button span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+  }
+
+  .ami-menu[open] .ami-menu-button span:nth-child(2){
+    opacity:0;
+  }
+
+  .ami-menu[open] .ami-menu-button span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+  }
+
   .ami-nav-menu{
     position:absolute;
     top:78px;
@@ -343,6 +370,10 @@ html{
     box-shadow:0 28px 80px rgba(0,0,0,0.45);
   }
 
+  .ami-menu[open] .ami-nav-menu{
+    display:flex !important;
+  }
+
   .ami-nav-menu a{
     width:100%;
     box-sizing:border-box;
@@ -355,20 +386,10 @@ html{
     color:#e5e7eb !important;
   }
 
-  .ami-menu-checkbox:checked ~ .ami-nav-menu{
-    display:flex !important;
-  }
-
-  .ami-menu-checkbox:checked + .ami-menu-button span:nth-child(1){
-    transform:translateY(7px) rotate(45deg);
-  }
-
-  .ami-menu-checkbox:checked + .ami-menu-button span:nth-child(2){
-    opacity:0;
-  }
-
-  .ami-menu-checkbox:checked + .ami-menu-button span:nth-child(3){
-    transform:translateY(-7px) rotate(-45deg);
+  .ami-nav-menu a:hover,
+  .ami-nav-menu a:active{
+    background:linear-gradient(135deg,rgba(0,212,255,0.16),rgba(118,87,255,0.18));
+    color:#ffffff !important;
   }
 
   body{
@@ -377,6 +398,7 @@ html{
 
   .hero,
   .wealth-hero,
+  .equity-hero,
   .about-hero,
   .policy-page{
     padding-top:60px !important;
@@ -424,21 +446,22 @@ html{
   <header class="ami-topnav">
   <a class="ami-logo" href="index.html">AMI</a>
 
-  <input type="checkbox" id="ami-menu-toggle" class="ami-menu-checkbox">
-  <label for="ami-menu-toggle" class="ami-menu-button" aria-label="Open navigation">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
+  <details class="ami-menu">
+    <summary class="ami-menu-button" aria-label="Open navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </summary>
 
-  <nav class="ami-nav-menu">
-    <a href="index.html">Home</a>
-    <a href="wealth.html">Wealth Platform</a>
-    <a href="equity.html">Equity Platform</a>
-    <a href="cmt.html">CMT Mentorship</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+    <nav class="ami-nav-menu">
+      <a href="#platforms">Platforms</a>
+      <a href="wealth.html">Wealth Platform</a>
+      <a href="equity.html">Equity Platform</a>
+      <a href="cmt.html">CMT Mentorship</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </details>
 </header>
 
   <section class="hero">
