@@ -84,6 +84,61 @@ html{
   transform:translateY(-6px) scale(1.05);
   box-shadow:0 24px 65px rgba(0,180,255,0.42);
 }
+/* Hero CTA Hover Upgrade */
+
+.hero-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.hero-actions .btn{
+  position:relative;
+  overflow:hidden;
+
+  transition:
+    transform .28s ease,
+    box-shadow .28s ease,
+    border-color .28s ease;
+
+  border:1px solid rgba(255,255,255,.14);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,.18);
+}
+
+.hero-actions .btn:hover{
+  transform:translateY(-4px);
+
+  border-color:rgba(0,212,255,.55);
+
+  box-shadow:
+    0 18px 50px rgba(0,180,255,.22),
+    0 0 0 1px rgba(255,255,255,.06);
+}
+
+.hero-actions .btn::before{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  opacity:0;
+
+  background:
+  linear-gradient(
+  135deg,
+  rgba(255,255,255,.08),
+  transparent
+  );
+
+  transition:.3s ease;
+}
+
+.hero-actions .btn:hover::before{
+  opacity:1;
+}
 </style>
 </head>
 <body>
