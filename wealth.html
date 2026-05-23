@@ -353,6 +353,394 @@ html{
       color: transparent;
     }
 
+
+    /* =========================
+       AMI PREMIUM PRICING UPGRADE
+       Matching app pricing cards + payment CTA
+       ========================= */
+
+    .premium-price-card,
+    .advisor-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      flex-direction: column;
+      background:
+        radial-gradient(circle at top left, rgba(0,212,255,0.08), transparent 34%),
+        radial-gradient(circle at top right, rgba(118,87,255,0.12), transparent 36%),
+        linear-gradient(145deg, rgba(7,17,31,0.96), rgba(2,7,17,0.99)) !important;
+      border: 1px solid rgba(255,255,255,0.13);
+      box-shadow: 0 26px 85px rgba(0,0,0,0.34);
+    }
+
+    .premium-price-card:hover,
+    .advisor-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(0,212,255,0.36);
+      box-shadow: 0 34px 95px rgba(0,0,0,0.42), 0 0 30px rgba(0,212,255,0.12);
+    }
+
+    .premium-price-card.featured,
+    .advisor-card.gold {
+      border-color: rgba(250,204,21,0.72);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.36), 0 0 32px rgba(250,204,21,0.14);
+    }
+
+    .advisor-card.green {
+      border-color: rgba(52,211,153,0.62);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.36), 0 0 32px rgba(52,211,153,0.12);
+    }
+
+    .premium-price-card h3,
+    .advisor-card h3 {
+      font-size: 28px;
+      font-weight: 950;
+      margin-top: 48px;
+      margin-bottom: 10px;
+    }
+
+    .strike-price {
+      color: rgba(148,163,184,0.90);
+      opacity: 0.92;
+      font-size: 22px;
+      font-weight: 900;
+      text-decoration: line-through;
+      text-decoration-thickness: 3px;
+      text-decoration-color: rgba(148,163,184,0.90);
+      margin-bottom: 4px;
+    }
+
+    .launch-price {
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 1000;
+      letter-spacing: -0.05em;
+      margin: 12px 0 10px;
+      background: linear-gradient(135deg, #ffffff, #60a5fa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .premium-price-card.featured .launch-price,
+    .advisor-card.gold .launch-price {
+      background: linear-gradient(135deg, #fff7cc, #facc15);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 22px rgba(250,204,21,0.26);
+    }
+
+    .advisor-card.green .launch-price {
+      background: linear-gradient(135deg, #dcfce7, #34d399);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 22px rgba(52,211,153,0.22);
+    }
+
+    .launch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 0.01em;
+      margin-bottom: 18px;
+      max-width: fit-content;
+      color: #BFDBFE;
+      background: rgba(37,99,235,0.16);
+      border: 1px solid rgba(96,165,250,0.72);
+      box-shadow: 0 0 18px rgba(96,165,250,0.12);
+    }
+
+    .launch-badge.cyan {
+      color: #A5F3FC;
+      background: rgba(6,182,212,0.14);
+      border-color: rgba(34,211,238,0.72);
+      box-shadow: 0 0 18px rgba(34,211,238,0.12);
+    }
+
+    .launch-badge.gold {
+      color: #FEF3C7;
+      background: rgba(250,204,21,0.15);
+      border-color: rgba(250,204,21,0.78);
+      box-shadow: 0 0 18px rgba(250,204,21,0.14);
+    }
+
+    .launch-badge.green {
+      color: #BBF7D0;
+      background: rgba(34,197,94,0.14);
+      border-color: rgba(74,222,128,0.72);
+      box-shadow: 0 0 18px rgba(74,222,128,0.12);
+    }
+
+    .effective-price {
+      display: inline-flex;
+      padding: 6px 12px;
+      border-radius: 999px;
+      color: #93c5fd;
+      border: 1px solid rgba(96,165,250,0.35);
+      background: rgba(14,165,233,0.08);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .effective-price.gold {
+      color: #facc15;
+      border-color: rgba(250,204,21,0.40);
+      background: rgba(250,204,21,0.08);
+    }
+
+    .effective-price.green {
+      color: #86efac;
+      border-color: rgba(52,211,153,0.38);
+      background: rgba(52,211,153,0.08);
+    }
+
+    .discount-shield{
+      position:absolute;
+      top:-8px;
+      right:20px;
+      width:88px;
+      height:108px;
+      z-index:10;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      border-radius:0 0 18px 18px;
+      backdrop-filter:blur(18px);
+      overflow:hidden;
+      box-shadow:0 12px 30px rgba(0,0,0,.35);
+    }
+
+    .discount-shield:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(255,255,255,.26), rgba(255,255,255,.03));
+      pointer-events:none;
+    }
+
+    .discount-num{
+      font-size:26px;
+      font-weight:1000;
+      color:white;
+      line-height:1;
+      text-shadow:0 2px 10px rgba(0,0,0,.35);
+      z-index:1;
+    }
+
+    .discount-off{
+      font-size:12px;
+      margin-top:6px;
+      font-weight:950;
+      letter-spacing:.08em;
+      color:white;
+      z-index:1;
+    }
+
+    .discount-label{
+      font-size:8px;
+      margin-top:6px;
+      font-weight:900;
+      opacity:.95;
+      color:white;
+      text-transform:uppercase;
+      z-index:1;
+    }
+
+    .discount-blue{
+      background:linear-gradient(180deg,#4fa7ff,#315eff);
+      box-shadow:0 0 32px rgba(79,167,255,.45);
+    }
+
+    .discount-cyan{
+      background:linear-gradient(180deg,#2df7ff,#0098ff);
+      box-shadow:0 0 32px rgba(45,247,255,.40);
+    }
+
+    .discount-gold{
+      background:linear-gradient(180deg,#ffd54f,#ff9800);
+      box-shadow:0 0 34px rgba(255,193,7,.45);
+    }
+
+    .discount-green{
+      background:linear-gradient(180deg,#34d399,#10b981);
+      box-shadow:0 0 34px rgba(52,211,153,.40);
+    }
+
+    .price-cta-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-top: auto;
+      padding: 15px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: linear-gradient(135deg, #00d4ff, #7657ff);
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 18px 45px rgba(0,180,255,0.22);
+      transition: 0.25s ease;
+    }
+
+    .price-cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 65px rgba(0,180,255,0.34);
+    }
+
+    .price-cta-btn.gold {
+      background: linear-gradient(135deg, #facc15, #f59e0b);
+      color: #111827;
+      box-shadow: 0 18px 45px rgba(250,204,21,0.22);
+    }
+
+    .price-cta-btn.disabled {
+      cursor: not-allowed;
+      opacity: 0.60;
+      background: linear-gradient(135deg, rgba(0,212,255,0.45), rgba(118,87,255,0.45));
+    }
+
+    .payment-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(2,7,17,0.82);
+      backdrop-filter: blur(14px);
+      z-index: 99999;
+      padding: 18px;
+    }
+
+    .payment-modal-backdrop.show {
+      display: flex;
+    }
+
+    .payment-modal {
+      width: min(520px, 100%);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top left, rgba(0,212,255,0.12), transparent 35%),
+        linear-gradient(145deg, rgba(7,17,31,0.98), rgba(2,7,17,0.99));
+      border: 1px solid rgba(125,211,252,0.28);
+      box-shadow: 0 34px 100px rgba(0,0,0,0.56);
+      padding: 28px;
+      color: #e2e8f0;
+      position: relative;
+    }
+
+    .payment-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #ffffff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .payment-modal h3 {
+      color: #ffffff;
+      font-size: 28px;
+      margin: 0 0 8px;
+    }
+
+    .payment-modal p {
+      color: rgba(226,232,240,0.74);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .selected-plan-box {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(125,211,252,0.08);
+      border: 1px solid rgba(125,211,252,0.22);
+      margin-bottom: 18px;
+      font-weight: 850;
+      color: #bfdbfe;
+    }
+
+    .payment-modal label {
+      display: block;
+      font-size: 13px;
+      font-weight: 900;
+      color: #ffffff;
+      margin: 12px 0 7px;
+    }
+
+    .payment-modal input {
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.34);
+      background: rgba(15,23,42,0.90);
+      color: #ffffff;
+      padding: 13px 14px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .payment-modal input:focus {
+      border-color: rgba(0,212,255,0.72);
+      box-shadow: 0 0 0 3px rgba(0,212,255,0.10);
+    }
+
+    .payment-submit {
+      width: 100%;
+      margin-top: 18px;
+      border: none;
+      border-radius: 16px;
+      padding: 15px 18px;
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 950;
+      background: linear-gradient(135deg,#00d4ff,#7657ff);
+      box-shadow: 0 18px 45px rgba(0,180,255,0.26);
+    }
+
+    .payment-submit:disabled {
+      opacity: 0.65;
+      cursor: wait;
+    }
+
+    .payment-note {
+      font-size: 12px;
+      color: rgba(226,232,240,0.62);
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    .payment-error {
+      display: none;
+      margin-top: 12px;
+      color: #fecaca;
+      background: rgba(239,68,68,0.10);
+      border: 1px solid rgba(239,68,68,0.28);
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+
     @media (max-width: 950px) {
       .why-grid,
       .premium-pricing-grid,
@@ -618,10 +1006,17 @@ html{
       <div class="premium-pricing-grid">
 
         <div class="premium-price-card">
+          <div class="discount-shield discount-blue">
+            <div class="discount-num">20%</div>
+            <div class="discount-off">OFF</div>
+            <div class="discount-label">Launch</div>
+          </div>
+
+          <span class="launch-badge">🚀 Launch Offer</span>
           <h3>Monthly</h3>
-          <div class="strike-price">₹399</div>
+          <div class="strike-price">₹375</div>
           <div class="launch-price">₹299</div>
-          <span class="launch-badge">Launch Discount</span>
+          <div class="effective-price">₹299/month</div>
           <p>Flexible monthly access for investors who want to explore premium analytics.</p>
           <ul>
             <li>✓ Portfolio dashboard</li>
@@ -629,13 +1024,27 @@ html{
             <li>✓ SIP tracking</li>
             <li>✓ Risk metrics</li>
           </ul>
+          <button class="price-cta-btn js-plan-btn"
+            data-plan-name="Monthly"
+            data-display-price="₹299"
+            data-plan="premium"
+            data-billing-cycle="monthly">
+            Buy Monthly ₹299 →
+          </button>
         </div>
 
         <div class="premium-price-card">
+          <div class="discount-shield discount-cyan">
+            <div class="discount-num">25%</div>
+            <div class="discount-off">OFF</div>
+            <div class="discount-label">Value</div>
+          </div>
+
+          <span class="launch-badge cyan">⭐ Most Chosen</span>
           <h3>Quarterly</h3>
-          <div class="strike-price">₹999</div>
+          <div class="strike-price">₹1,065</div>
           <div class="launch-price">₹799</div>
-          <span class="launch-badge">Better Value</span>
+          <div class="effective-price">₹266/month effective</div>
           <p>Ideal for investors who review their portfolio every quarter.</p>
           <ul>
             <li>✓ Everything in Monthly</li>
@@ -643,13 +1052,27 @@ html{
             <li>✓ Better effective monthly cost</li>
             <li>✓ Regular portfolio review cycle</li>
           </ul>
+          <button class="price-cta-btn js-plan-btn"
+            data-plan-name="Quarterly"
+            data-display-price="₹799"
+            data-plan="premium"
+            data-billing-cycle="quarterly">
+            Buy Quarterly ₹799 →
+          </button>
         </div>
 
         <div class="premium-price-card featured">
+          <div class="discount-shield discount-gold">
+            <div class="discount-num">30%</div>
+            <div class="discount-off">OFF</div>
+            <div class="discount-label">Best</div>
+          </div>
+
+          <span class="launch-badge gold">⭐ Best Value</span>
           <h3>Yearly</h3>
-          <div class="strike-price">₹1,999</div>
+          <div class="strike-price">₹2,142</div>
           <div class="launch-price">₹1,499</div>
-          <span class="launch-badge">Best Value</span>
+          <div class="effective-price gold">₹125/month effective • Billed yearly</div>
           <p>Best for serious long-term investors who want ongoing portfolio intelligence.</p>
           <ul>
             <li>✓ Full premium access</li>
@@ -657,6 +1080,13 @@ html{
             <li>✓ Complete analytics suite</li>
             <li>✓ Best for long-term tracking</li>
           </ul>
+          <button class="price-cta-btn gold js-plan-btn"
+            data-plan-name="Yearly"
+            data-display-price="₹1,499"
+            data-plan="premium"
+            data-billing-cycle="yearly">
+            Buy Yearly ₹1,499 →
+          </button>
         </div>
 
       </div>
@@ -676,10 +1106,17 @@ html{
       <div class="advisor-grid">
 
         <div class="advisor-card gold">
+          <div class="discount-shield discount-gold">
+            <div class="discount-num">25%</div>
+            <div class="discount-off">OFF</div>
+            <div class="discount-label">Advisor</div>
+          </div>
+
+          <span class="launch-badge gold">🧑‍💼 Early Advisor Pricing</span>
           <h3>Advisor Pro</h3>
-          <div class="strike-price">₹15,000</div>
+          <div class="strike-price">₹14,815</div>
           <div class="launch-price">₹11,111</div>
-          <span class="launch-badge">Early Advisor Pricing</span>
+          <div class="effective-price gold">₹925/month effective • Up to 25 clients</div>
           <p>For advisors managing up to 25 client portfolios with reporting and review workflows.</p>
           <ul>
             <li>✓ Up to 25 client portfolios</li>
@@ -687,13 +1124,23 @@ html{
             <li>✓ PDF portfolio upload support</li>
             <li>✓ Tax and capital gains analytics</li>
           </ul>
+          <button class="price-cta-btn disabled" disabled>
+            Advisor Pro — Coming Soon
+          </button>
         </div>
 
         <div class="advisor-card green">
+          <div class="discount-shield discount-green">
+            <div class="discount-num">30%</div>
+            <div class="discount-off">OFF</div>
+            <div class="discount-label">Launch</div>
+          </div>
+
+          <span class="launch-badge green">🏢 Launch Pricing</span>
           <h3>Enterprise</h3>
-          <div class="strike-price">₹32,999</div>
+          <div class="strike-price">₹39,999</div>
           <div class="launch-price">₹27,999</div>
-          <span class="launch-badge">Enterprise Launch Pricing</span>
+          <div class="effective-price green">₹2,333/month effective • Up to 100 clients</div>
           <p>For larger advisory teams and enterprise wealth intelligence workflows.</p>
           <ul>
             <li>✓ Up to 100 client portfolios</li>
@@ -701,6 +1148,9 @@ html{
             <li>✓ Custom reports</li>
             <li>✓ Priority onboarding</li>
           </ul>
+          <button class="price-cta-btn disabled" disabled>
+            Enterprise — Coming Soon
+          </button>
         </div>
 
       </div>
@@ -717,6 +1167,42 @@ html{
       </a>
     </div>
   </section>
+
+
+
+  <div class="payment-modal-backdrop" id="paymentModalBackdrop">
+    <div class="payment-modal">
+      <button class="payment-modal-close" id="paymentModalClose" type="button">×</button>
+      <h3>Complete AMI Subscription</h3>
+      <p>Enter the details you want linked to your AMI Wealth Platform subscription.</p>
+
+      <div class="selected-plan-box" id="selectedPlanBox">
+        Selected Plan
+      </div>
+
+      <form id="paymentForm">
+        <label for="payerName">Full Name</label>
+        <input id="payerName" name="full_name" type="text" placeholder="Enter your full name" required>
+
+        <label for="payerEmail">Email</label>
+        <input id="payerEmail" name="email" type="email" placeholder="Use the same email for app login" required>
+
+        <label for="payerPhone">Mobile Number</label>
+        <input id="payerPhone" name="phone" type="tel" placeholder="10-digit mobile number" minlength="10" maxlength="10" pattern="[0-9]{10}" required>
+
+        <button class="payment-submit" id="paymentSubmitBtn" type="submit">
+          Proceed to Secure Payment
+        </button>
+
+        <div class="payment-note">
+          Important: Use this same email when you login/signup on AMI Wealth Platform.
+          Your premium access will be activated against this email after successful payment.
+        </div>
+
+        <div class="payment-error" id="paymentError"></div>
+      </form>
+    </div>
+  </div>
 
 
 <footer class="premium-footer">
@@ -803,5 +1289,112 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+
+<script>
+const AMI_BACKEND_URL = "https://ami-cashfree-backend.onrender.com";
+
+let selectedPlan = null;
+
+function openPaymentModal(planData) {
+  selectedPlan = planData;
+
+  const backdrop = document.getElementById("paymentModalBackdrop");
+  const selectedPlanBox = document.getElementById("selectedPlanBox");
+  const errorBox = document.getElementById("paymentError");
+  const submitBtn = document.getElementById("paymentSubmitBtn");
+
+  selectedPlanBox.innerHTML = `${planData.planName} Plan • ${planData.displayPrice}`;
+  errorBox.style.display = "none";
+  errorBox.textContent = "";
+  submitBtn.disabled = false;
+  submitBtn.textContent = "Proceed to Secure Payment";
+
+  backdrop.classList.add("show");
+}
+
+function closePaymentModal() {
+  document.getElementById("paymentModalBackdrop").classList.remove("show");
+}
+
+document.querySelectorAll(".js-plan-btn").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    openPaymentModal({
+      planName: btn.dataset.planName,
+      displayPrice: btn.dataset.displayPrice,
+      plan: btn.dataset.plan,
+      billingCycle: btn.dataset.billingCycle
+    });
+  });
+});
+
+document.getElementById("paymentModalClose").addEventListener("click", closePaymentModal);
+
+document.getElementById("paymentModalBackdrop").addEventListener("click", function(e) {
+  if (e.target.id === "paymentModalBackdrop") {
+    closePaymentModal();
+  }
+});
+
+document.getElementById("paymentForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  if (!selectedPlan) return;
+
+  const submitBtn = document.getElementById("paymentSubmitBtn");
+  const errorBox = document.getElementById("paymentError");
+
+  const fullName = document.getElementById("payerName").value.trim();
+  const email = document.getElementById("payerEmail").value.trim().toLowerCase();
+  const phone = document.getElementById("payerPhone").value.trim();
+
+  errorBox.style.display = "none";
+  errorBox.textContent = "";
+
+  if (!fullName || !email || !/^[0-9]{10}$/.test(phone)) {
+    errorBox.textContent = "Please enter valid name, email and 10-digit mobile number.";
+    errorBox.style.display = "block";
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Creating secure payment link...";
+
+  try {
+    const response = await fetch(`${AMI_BACKEND_URL}/create-order`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: email,
+        full_name: fullName,
+        phone: phone,
+        plan: selectedPlan.plan,
+        billing_cycle: selectedPlan.billingCycle,
+        source: "website"
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.detail || "Unable to create payment order.");
+    }
+
+    if (!data.checkout_url) {
+      throw new Error("Checkout URL not received from payment backend.");
+    }
+
+    window.location.href = data.checkout_url;
+
+  } catch (err) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Proceed to Secure Payment";
+    errorBox.textContent = "Payment could not start. Please try again or contact support. " + (err.message || "");
+    errorBox.style.display = "block";
+  }
+});
+</script>
+
 </body>
 </html>
