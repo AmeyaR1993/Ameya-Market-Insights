@@ -827,3 +827,133 @@ footer a{
   }
 }
 
+
+/* =====================================================
+   AMI Animated Premium Preview
+   Added only in AMI-Website-animated-preview
+===================================================== */
+:root{
+  --motion-cyan:#14d8ff;
+  --motion-blue:#4f7cff;
+  --motion-violet:#8b5cf6;
+  --motion-gold:#f7c86b;
+  --motion-ink:#f8fafc;
+  --motion-muted:#aeb9ce;
+}
+body{
+  background:
+    radial-gradient(circle at 12% 4%,rgba(20,216,255,.18),transparent 30%),
+    radial-gradient(circle at 88% 10%,rgba(247,200,107,.10),transparent 24%),
+    radial-gradient(circle at 70% 88%,rgba(139,92,246,.18),transparent 32%),
+    #050713;
+}
+body.ami-motion-ready::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:58px 58px;
+  opacity:.28;
+  animation:amiGridDrift 18s linear infinite;
+  mask-image:linear-gradient(to bottom,#000 0%,transparent 78%);
+}
+.navbar,.nav{
+  transition:padding .28s ease,background .28s ease,box-shadow .28s ease,border-color .28s ease;
+}
+body.ami-scrolled .navbar,
+body.ami-scrolled .nav{
+  padding-top:14px;
+  padding-bottom:14px;
+  background:rgba(4,7,18,.84);
+  box-shadow:0 22px 70px rgba(0,0,0,.30);
+  border-bottom-color:rgba(255,255,255,.14);
+}
+.hero,.wealth-hero,.equity-hero,.about-hero{
+  isolation:isolate;
+}
+.hero::before,.wealth-hero::before,.about-hero::before{
+  content:"";
+  position:absolute;
+  inset:84px 5% auto auto;
+  width:min(42vw,560px);
+  height:min(42vw,560px);
+  pointer-events:none;
+  z-index:0;
+  border-radius:50%;
+  background:conic-gradient(from 90deg,rgba(20,216,255,.0),rgba(20,216,255,.20),rgba(247,200,107,.13),rgba(139,92,246,.18),rgba(20,216,255,.0));
+  filter:blur(34px);
+  opacity:.78;
+  animation:amiHaloSpin 22s linear infinite;
+}
+.hero-left,.wealth-hero-content,.equity-hero-content,.about-content{
+  animation:amiRise .85s cubic-bezier(.2,.8,.2,1) both;
+}
+.hero-right,.wealth-hero-image,.equity-hero-image,.about-image{
+  animation:amiRise .95s cubic-bezier(.2,.8,.2,1) .10s both;
+}
+.dashboard-card,.hero-card{
+  transform-style:preserve-3d;
+  animation:amiFloat 6.5s ease-in-out infinite;
+  will-change:transform;
+}
+.dashboard-card::after,.hero-card::after,.product-card::after,.pricing-preview-card::after,.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,.12) 42%,transparent 58%);
+  transform:translateX(-120%);
+  transition:transform .75s ease;
+}
+.dashboard-card,.hero-card,.product-card,.pricing-preview-card,.card{position:relative;overflow:hidden}
+.dashboard-card:hover::after,.hero-card:hover::after,.product-card:hover::after,.pricing-preview-card:hover::after,.card:hover::after{transform:translateX(120%)}
+.chart div{animation:amiBarPulse 2.8s ease-in-out infinite;transform-origin:bottom}
+.chart div:nth-child(2){animation-delay:.12s}.chart div:nth-child(3){animation-delay:.24s}.chart div:nth-child(4){animation-delay:.36s}.chart div:nth-child(5){animation-delay:.48s}.chart div:nth-child(6){animation-delay:.60s}
+.kpi-row div,.mini-grid div,.feature-grid div{transition:transform .28s ease,border-color .28s ease,background .28s ease}
+.kpi-row div:hover,.mini-grid div:hover,.feature-grid div:hover{transform:translateY(-4px);border-color:rgba(247,200,107,.34);background:rgba(255,255,255,.095)}
+.ami-reveal{opacity:0;transform:translateY(36px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.8,.2,1)}
+.ami-reveal.ami-visible{opacity:1;transform:translateY(0)}
+.ami-reveal:nth-child(2){transition-delay:.07s}.ami-reveal:nth-child(3){transition-delay:.14s}.ami-reveal:nth-child(4){transition-delay:.21s}
+.feature-image img,.showcase-container img,.wealth-wide-image img,.wealth-cta img,.equity-cta img,.certification-grid img{
+  transition:transform .55s ease,box-shadow .55s ease,filter .55s ease;
+}
+.feature-image img:hover,.showcase-container img:hover,.wealth-wide-image img:hover,.wealth-cta img:hover,.equity-cta img:hover,.certification-grid img:hover{
+  transform:translateY(-8px) scale(1.012);
+  filter:saturate(1.08) contrast(1.04);
+}
+.primary-btn,.secondary-btn,.btn,.equity-primary,.equity-secondary,.price-cta-btn,.pricing-preview-card a,.cta-overlay a{
+  position:relative;
+  overflow:hidden;
+}
+.primary-btn::before,.secondary-btn::before,.btn::before,.equity-primary::before,.equity-secondary::before,.price-cta-btn::before,.pricing-preview-card a::before,.cta-overlay a::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(110deg,transparent,rgba(255,255,255,.18),transparent);
+  transform:translateX(-120%);
+  transition:transform .55s ease;
+}
+.primary-btn:hover::before,.secondary-btn:hover::before,.btn:hover::before,.equity-primary:hover::before,.equity-secondary:hover::before,.price-cta-btn:hover::before,.pricing-preview-card a:hover::before,.cta-overlay a:hover::before{transform:translateX(120%)}
+.showcase-section,.dark-section,.why-matters,.plans-section,.equity-section.alt,.business-section{
+  background-attachment:fixed;
+}
+@keyframes amiGridDrift{from{background-position:0 0,0 0}to{background-position:58px 58px,58px 58px}}
+@keyframes amiHaloSpin{from{transform:rotate(0deg) scale(1)}50%{transform:rotate(180deg) scale(1.08)}to{transform:rotate(360deg) scale(1)}}
+@keyframes amiRise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes amiFloat{0%,100%{transform:translate3d(var(--ami-tilt-x,0),var(--ami-tilt-y,0),0) rotateX(var(--ami-rotate-x,0)) rotateY(var(--ami-rotate-y,0))}50%{transform:translate3d(var(--ami-tilt-x,0),calc(var(--ami-tilt-y,0) - 12px),0) rotateX(var(--ami-rotate-x,0)) rotateY(var(--ami-rotate-y,0))}}
+@keyframes amiBarPulse{0%,100%{transform:scaleY(.94);filter:saturate(1)}50%{transform:scaleY(1.08);filter:saturate(1.35)}}
+@media(max-width:900px){
+  body.ami-motion-ready::before{background-size:42px 42px;animation-duration:24s;opacity:.20}
+  .hero::before,.wealth-hero::before,.about-hero::before{width:320px;height:320px;right:-80px;top:92px;opacity:.52}
+  .showcase-section,.dark-section,.why-matters,.plans-section,.equity-section.alt,.business-section{background-attachment:scroll}
+  .dashboard-card,.hero-card{animation:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+  .ami-reveal{opacity:1 !important;transform:none !important}
+}
